@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import Cartwidget from './Cartwidget';
 
 function Navbar() {
 
@@ -21,18 +22,27 @@ function Navbar() {
         <div className="burger" onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
+        <Cartwidget/>
         <nav className={click ? "menu fold" : "menu"} onClick={handleClick}>
             <a href="#">Novedades</a>
             <a href="#">Los más vendidos</a>
             <a href="#">Catálogo</a>
             <a href="#">Sucursales</a>
-            <a href="#">Contacto</a>
         </nav>
+        
         </div>
     </header>
 );
 
 }
 
+
+/*preguntar:
+
+onClick={()=>handleClick()}
+
+o
+
+onClick={handleClick}  */
 
     export default Navbar;
