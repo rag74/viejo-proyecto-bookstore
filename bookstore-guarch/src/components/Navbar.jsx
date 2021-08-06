@@ -11,7 +11,7 @@ function Navbar() {
             setClick(!click)
         } else {setClick(false)}
     };
-    
+
 
     return(
         <header>
