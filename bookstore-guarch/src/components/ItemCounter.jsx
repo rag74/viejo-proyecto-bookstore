@@ -16,7 +16,7 @@ function ItemCounter ({ initial, stock , onAdd }) {
     };
 
 
-    const handleCarro = (event)=>{onAdd(userSelected, setUserSelected, initial)}
+    const handleAdd = ()=>{onAdd(userSelected, setUserSelected, initial)}
 
 
     return (
@@ -32,7 +32,7 @@ function ItemCounter ({ initial, stock , onAdd }) {
                     <div className="buttonI"onClick={()=>increment()}>+</div>
                 </div>
             </div>
-            <div className="buttonAdd" onClick={handleCarro}>
+            <div className="buttonAdd" onClick={handleAdd}>
                 Agregar al carrito
             </div>
             <div id="accion" className="">.</div>
