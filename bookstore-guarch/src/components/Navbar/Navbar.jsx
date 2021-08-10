@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import Cartwidget from './Cartwidget';
+import Cartwidget from '../Cartwidget/Cartwidget'
 
 function Navbar() {
 

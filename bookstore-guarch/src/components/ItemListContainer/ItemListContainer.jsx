@@ -1,6 +1,6 @@
 import React from 'react';
 import './ItemListContainer.css';
-import ItemCounter from './ItemCounter';
+import ItemCounter from '../ItemCounter/ItemCounter'
 
 function ItemListContainer() {
 
@@ -22,7 +22,6 @@ function ItemListContainer() {
     <ItemCounter 
     stock={5} 
     initial={1}
-    onIncrease={ () => setValue( value + 1 ) } 
     onAdd={onAdd}
     />
     </div>
