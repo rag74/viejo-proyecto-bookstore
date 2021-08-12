@@ -1,0 +1,15 @@
+.loading {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1srem;
+  padding-top: 3rem;
+  animation: flash;
+  animation-duration: 2s;
+}
+
+.grilla-prod {
+  display: flex;
+  margin-bottom: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
