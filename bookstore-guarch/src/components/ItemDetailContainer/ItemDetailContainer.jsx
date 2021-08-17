@@ -49,7 +49,7 @@ function ItemDetailContainer() {
   const [loading, setLoading] = useState(true)
 
 
-
+useEffect(()=>{
   const getItems = ()=> {
     return new Promise ((resolve, reject)=>{
       setTimeout (()=>{
@@ -68,6 +68,8 @@ setearItems()
    setItem(itemSelected);
    setLoading(false)
   }
+
+  },[]);
 
 
 
