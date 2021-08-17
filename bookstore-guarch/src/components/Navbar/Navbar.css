@@ -15,12 +15,6 @@ header {
   z-index: 100;
 }
 
-.contenedor {
-  width: 100%;
-  margin: auto;
-  min-width: 400px;
-}
-
 h1 {
   float: left;
   font-family: "Fjalla One", sans-serif;

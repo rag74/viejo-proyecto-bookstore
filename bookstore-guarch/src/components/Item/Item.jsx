@@ -7,8 +7,10 @@ function Item ({id , title , price , pictureUrl}) {
     return (
        <div className="card">
            <img src={pictureUrl} alt="" />
-           <div>{title}</div>
-           <div>$ {price}</div>
+           <div className="cardtext">
+           <h3>$ {price}</h3>
+           <p>{title}</p>
+           </div>
        </div>
     )
 

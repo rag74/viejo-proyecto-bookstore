@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import './ItemListContainer.css';
+import './ItemDetailContainer.css';
 import ItemCounter from '../ItemCounter/ItemCounter'
-import ItemList from "../ItemList/ItemList";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 const lista = [
   {
@@ -42,46 +42,36 @@ const lista = [
 console.log(lista);
 
 
-function ItemListContainer() {
+function ItemDetailContainer() {
 
-  /*const onAdd = (userSelected, setUserSelected, initial)=> {
-    console.log("genial! Agregamos al carro "+userSelected)
-    setUserSelected(initial);
-    const element = document.getElementById("accion");
-    element.innerHTML = "Productos agregados: "+userSelected;
-    element.className = "agregado";
-    setTimeout(()=>{element.innerHTML = ".";element.className = ""},1500);
-    };*/
 
-  const [productos, setProductos] = useState([]);
+  const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(true)
 
-  /*const promise = new Promise ((resolve, reject)=>{
-      setTimeout (()=>{
-        resolve(lista),reject(new Error('No hay productos'))
-      },2000);
-    });
-
-  promise
-   .then(lista => {setProductos(lista);setLoading(false)})
-   .catch(error => console.error(error));*/
 
 
-  const getProductos = ()=> {
+  const getItems = (id = null)=> {
     return new Promise ((resolve, reject)=>{
       setTimeout (()=>{
-        resolve(lista),
-        reject(new Error('No hay productos'));
+        const item = lista.find(item => item.id === id);
+        if (item != null) resolve(item);
+        reject(new Error('No existe el item'));
       },2000);
     })
   };
 
-  setearProductos()
-  async function setearProductos() {
-    const traerlistado = await getProductos();
-    setProductos(traerlistado);
-    setLoading(false)
-  };
+
+  const myPromise = new Promise(async (resolve, reject) => {
+    const item = await getItems('2').catch(
+      err => reject(err)
+    );
+    item?.isValid ? resolve(item) : reject('No existe el item');
+  });
+  
+
+  myPromise.then(result => console.log(result)).catch(err => console.log(err));
+
+
 
   console.log(productos);
   console.log(loading);
@@ -91,7 +81,7 @@ function ItemListContainer() {
     <div className="contenedor">
        <h1 className="tituloseccion">CATALOGO</h1>   
     <div className="catalogo"> 
-    <ItemList productos={productos}
+    <ItemDetail item={item}
               loading={loading}
     />
     </div>
@@ -99,4 +89,4 @@ function ItemListContainer() {
   );
 }
 
-export default ItemListContainer
+export default ItemDetailContainer
