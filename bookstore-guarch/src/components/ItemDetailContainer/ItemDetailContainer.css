@@ -14,12 +14,12 @@
   /* flex-wrap: nowrap; */
 }
 
-.tituloseccion {
+.loading {
   float: none;
   color: #333333;
-  font-size: 6rem;
-  letter-spacing: 3px;
+  font-size: 2rem;
   padding: 0;
   padding-top: 100px;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }

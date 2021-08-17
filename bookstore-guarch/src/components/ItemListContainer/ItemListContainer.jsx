@@ -53,10 +53,7 @@ function ItemListContainer() {
     setTimeout(()=>{element.innerHTML = ".";element.className = ""},1500);
     };*/
 
-  const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true)
-
-  /*const promise = new Promise ((resolve, reject)=>{
+      /*const promise = new Promise ((resolve, reject)=>{
       setTimeout (()=>{
         resolve(lista),reject(new Error('No hay productos'))
       },2000);
@@ -65,6 +62,10 @@ function ItemListContainer() {
   promise
    .then(lista => {setProductos(lista);setLoading(false)})
    .catch(error => console.error(error));*/
+
+
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true)
 
 
   const getProductos = ()=> {

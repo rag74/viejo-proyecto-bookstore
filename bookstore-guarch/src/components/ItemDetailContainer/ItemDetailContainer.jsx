@@ -36,7 +36,7 @@ const lista = [
     description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas porta nunc, sed pretium nulla maximus sit amet. Vestibulum convallis libero diam, eget gravida ligula sollicitudin a. Quisque semper lorem eget ex posuere mattis. Phasellus condimentum erat eu ultricies tristique. Maecenas fringilla sed velit feugiat condimentum. Integer a magna eros. Curabitur ac nisi id lorem pulvinar luctus non quis lectus. Donec molestie libero in augue volutpat, id ornare risus commodo. Donec ac orci sit amet dolor tincidunt maximus. Sed consequat neque nec quam posuere, et tempor odio blandit. Donec dapibus, ex at tincidunt posuere, magna sapien porta mauris, eget ultricies tellus nulla at mauris. Sed egestas volutpat tincidunt. Aenean scelerisque placerat ex. Cras placerat turpis a tortor dignissim sodales. Nulla bibendum leo ipsum, imperdiet bibendum dolor tristique in.',
   },
 
-]
+];
 
 
 console.log(lista);
@@ -45,47 +45,53 @@ console.log(lista);
 function ItemDetailContainer() {
 
 
-  const [item, setItem] = useState([]);
+  const [itemD, setItem] = useState([]);
   const [loading, setLoading] = useState(true)
 
 
 
-  const getItems = (id = null)=> {
+  const getItems = ()=> {
     return new Promise ((resolve, reject)=>{
       setTimeout (()=>{
-        const item = lista.find(item => item.id === id);
-        if (item != null) resolve(item);
-        reject(new Error('No existe el item'));
+        resolve(lista),
+        reject(new Error('No hay productos'));
       },2000);
     })
   };
 
 
-  const myPromise = new Promise(async (resolve, reject) => {
-    const item = await getItems('2').catch(
-      err => reject(err)
-    );
-    item?.isValid ? resolve(item) : reject('No existe el item');
-  });
-  
-
-  myPromise.then(result => console.log(result)).catch(err => console.log(err));
-
+setearItems()
+  async function setearItems() {
+    const traerItems = await getItems();
+    const itemSelected = traerItems.filter((traerItems) => traerItems.id === '2');
+   console.log(itemSelected);
+   setItem(itemSelected);
+   setLoading(false)
+  }
 
 
-  console.log(productos);
+
+  console.log(itemD);
   console.log(loading);
 
   return (
     
-    <div className="contenedor">
-       <h1 className="tituloseccion">CATALOGO</h1>   
-    <div className="catalogo"> 
-    <ItemDetail item={item}
-              loading={loading}
-    />
-    </div>
-    </div>
+       <div className="contenedor">
+        <div className="loading">{loading===true && <div>Cargando...</div>}</div>
+            <div className="grilla-prod">
+            {itemD.map(item => {return <ItemDetail
+                                                key={item.id} 
+                                                id={item.id}
+                                                title={item.title}
+                                                price={item.price}
+                                                pictureUrl={item.pictureUrl}
+                                                description={item.description}
+                                            />
+                                    })
+                                }
+            </div>
+        </div>
+ 
   );
 }
 
