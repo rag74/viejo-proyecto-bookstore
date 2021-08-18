@@ -39,8 +39,6 @@ const lista = [
 ];
 
 
-console.log(lista);
-
 
 function ItemDetailContainer() {
 
@@ -50,24 +48,24 @@ function ItemDetailContainer() {
 
 
 useEffect(()=>{
-  const getItems = ()=> {
-    return new Promise ((resolve, reject)=>{
-      setTimeout (()=>{
-        resolve(lista),
-        reject(new Error('No hay productos'));
-      },2000);
-    })
-  };
+      const getItems = ()=> {
+        return new Promise ((resolve, reject)=>{
+          setTimeout (()=>{
+            resolve(lista),
+            reject(new Error('No hay productos'));
+          },2000);
+        })
+      };
 
 
-setearItems()
-  async function setearItems() {
-    const traerItems = await getItems();
-    const itemSelected = traerItems.filter((traerItems) => traerItems.id === '2');
-   console.log(itemSelected);
-   setItem(itemSelected);
-   setLoading(false)
-  }
+    setearItems()
+      async function setearItems() {
+        const traerItems = await getItems();
+        const itemSelected = traerItems.find((traerItems) => traerItems.id === '2');
+      console.log(itemSelected);
+      setItem(itemSelected);
+      setLoading(false)
+      }
 
   },[]);
 
@@ -79,9 +77,21 @@ setearItems()
   return (
     
        <div className="contenedor">
-        <div className="loading">{loading===true && <div>Cargando...</div>}</div>
+         {loading ? 
+        <div className="loading">Cargando...</div> :
             <div className="grilla-prod">
-            {itemD.map(item => {return <ItemDetail
+            <ItemDetail key={itemD.id} id={itemD.id} title={itemD.title} price={itemD.price} pictureUrl={itemD.pictureUrl} description={itemD.description} />
+            </div>
+        }
+        </div>
+ 
+  );
+}
+
+export default ItemDetailContainer
+
+
+/*            {itemD.map(item => {return <ItemDetail
                                                 key={item.id} 
                                                 id={item.id}
                                                 title={item.title}
@@ -91,10 +101,4 @@ setearItems()
                                             />
                                     })
                                 }
-            </div>
-        </div>
- 
-  );
-}
-
-export default ItemDetailContainer
+                                */
