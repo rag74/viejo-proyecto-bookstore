@@ -1,5 +1,5 @@
-.card {
-  width: 180px;
+.cardI {
+  width: 200px;
   margin: 10px;
   border: 1px solid #a2a2a2;
   border-radius: 4px;
@@ -7,13 +7,19 @@
   text-align: left;
 }
 
-.card img {
+.cardI img {
   border-bottom: 1px solid #a2a2a2;
   width: 100%;
   padding-left: 2px;
   padding-right: 2px;
 }
 
-.cardtext {
+.cardtextI {
   padding: 10px;
+  height: 90px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

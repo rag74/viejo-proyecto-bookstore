@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Cartwidget from '../Cartwidget/Cartwidget'
 
@@ -15,8 +16,7 @@ function Navbar() {
 
     return(
         <header>
-        <div className="contenedor">
-            
+        <div className="contenedor">   
         <i className="fas fa-book-open libro"></i>
         <h1>BOOKSTORE</h1>
         <div className="burger" onClick={handleClick}>
@@ -24,10 +24,10 @@ function Navbar() {
         </div>
         <Cartwidget/>
         <nav className={click ? "menu fold" : "menu"} onClick={handleClick}>
-            <a href="#">Novedades</a>
-            <a href="#">Los más vendidos</a>
-            <a href="#">Catálogo</a>
-            <a href="#">Sucursales</a>
+            <Link to="/novedades">Novedades</Link>
+            <Link to="/masvendidos">Los más vendidos</Link>
+            <Link to="/">Catálogo</Link>
+            <Link to="/">Contacto</Link>
         </nav>
         
         </div>

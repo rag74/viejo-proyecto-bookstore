@@ -9,22 +9,24 @@ function ItemList ({productos, loading}) {
     return(
         
         <div className="contenedor">
-        <div className="loading">{loading===true && <div>Cargando...</div>}</div>
-            <div className="grilla-prod">
-            {productos.map(item => {return <Item
-                                                key={item.id} 
-                                                id={item.id}
-                                                title={item.title}
-                                                price={item.price}
-                                                pictureUrl={item.pictureUrl}
-                                            />
-                                    })
-                                }
-            </div>
+        {loading ?
+            <div className="loading">Cargando...</div> :
+                <div className="grilla-prodI">
+                {productos.map(item => {return <Item
+                                                    key={item.id} 
+                                                    id={item.id}
+                                                    title={item.title}
+                                                    price={item.price}
+                                                    stock={item.stock}
+                                                    categoria={item.categoria}
+                                                    pictureUrl={item.pictureUrl}
+                                                />
+                                        })
+                    };
+                </div>
+        }
         </div>
     )
-    
-};
-
+    }
 
 export default ItemList

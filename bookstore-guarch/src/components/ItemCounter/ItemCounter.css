@@ -1,7 +1,8 @@
 .contenedorProducto {
-  width: 200px;
+  width: 198px;
   margin: auto;
   padding: 5px 5px 5px 5px;
+  margin-top: 10px;
 }
 
 .cardProducto {
@@ -30,6 +31,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   padding: 5px 5px;
+  margin: 5px;
   border: 1px solid #a2a2a2;
   border-radius: 4px;
 }
@@ -75,14 +77,30 @@
   cursor: pointer;
 }
 
+/*
 #accion {
   margin-top: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: #4994dc;
+  text-align: center;
+}*/
+
+.hidden {
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #4994dc;
+  text-align: center;
+  visibility: hidden;
 }
 
 .agregado {
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #4994dc;
+  text-align: center;
   animation: fadeOutUp 2s;
   color: #4994dc;
 }

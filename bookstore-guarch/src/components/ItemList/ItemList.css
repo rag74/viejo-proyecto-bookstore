@@ -6,9 +6,10 @@
   animation-duration: 2s;
 }
 
-.grilla-prod {
+.grilla-prodI {
   display: flex;
   margin-bottom: 1rem;
+  margin-top: 1rem;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;

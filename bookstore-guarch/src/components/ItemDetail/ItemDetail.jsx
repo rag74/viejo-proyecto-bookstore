@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import './ItemDetail.css';
+import ItemCounter from '../ItemCounter/ItemCounter'
 
-function ItemDetail ({id , title , price , pictureUrl, description}) {
+function ItemDetail ({id , title , price , stock, pictureUrl, description, categoria}) {
 
 
     return (
@@ -11,6 +12,7 @@ function ItemDetail ({id , title , price , pictureUrl, description}) {
            <h3>$ {price}</h3>
            <h3>{title}</h3>
            <p>Descripción: {description}</p>
+           <ItemCounter stock={stock} initial={1} id={id} />
            </div>
        </div>
     )
