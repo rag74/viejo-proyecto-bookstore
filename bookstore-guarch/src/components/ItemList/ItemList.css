@@ -1,9 +1,16 @@
 .loading {
+  float: none;
+  color: #333333;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1srem;
-  padding-top: 3rem;
+  font-size: 2rem;
+  text-align: center;
   animation: flash;
   animation-duration: 2s;
+
+  align-items: center;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
 }
 
 .grilla-prodI {

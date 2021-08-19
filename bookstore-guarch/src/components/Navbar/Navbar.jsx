@@ -26,8 +26,8 @@ function Navbar() {
         </div>
         <Cartwidget/>
         <nav className={click ? "menu fold" : "menu"} onClick={handleClick}>
-            <Link to="/novedades">Novedades</Link>
-            <Link to="/masvendidos">Los más vendidos</Link>
+            <Link to="/category/novedades">Novedades</Link>
+            <Link to="/category/masvendidos">Los más vendidos</Link>
             <Link to="/">Catálogo</Link>
             <Link to="/">Contacto</Link>
         </nav>

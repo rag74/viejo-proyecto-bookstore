@@ -17,9 +17,11 @@
 .cardtextI {
   padding: 10px;
   height: 90px;
+
+  color: #333333;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #3333;
 }

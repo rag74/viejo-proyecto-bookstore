@@ -21,11 +21,11 @@ function App() {
       <ItemListContainer titulo="CATALOGO" />
       </Route>
 
-      <Route path='/novedades/' exact>
+      <Route path='/category/novedades' exact>
       <ItemListContainer titulo="NOVEDADES" categoria="novedades"/>
       </Route>
 
-      <Route path='/masvendidos/' exact>
+      <Route path='/category/masvendidos' exact>
       <ItemListContainer titulo="LOS MÁS VENDIDOS" categoria="masvendidos"/>
       </Route>
 

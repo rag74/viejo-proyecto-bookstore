@@ -8,7 +8,7 @@ function Item ({id , title , price , stock, pictureUrl, categoria}) {
 
     return (
        <div className="cardI">
-           <Link to={`/${categoria}/${id}`}>
+           <Link to={`/item/${id}`}>
            <img src={pictureUrl} alt="" />
            <div className="cardtextI">
            <h3>$ {price}</h3>
