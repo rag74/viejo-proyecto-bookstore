@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ItemCounter from "../ItemCounter/ItemCounter";
 import './Item.css';
 
-function Item ({id , title , price , stock, pictureUrl, categoria}) {
+function Item ({id , title , price , autor, stock, pictureUrl, categoria}) {
 
 
     return (
@@ -12,7 +12,7 @@ function Item ({id , title , price , stock, pictureUrl, categoria}) {
            <img src={pictureUrl} alt="" />
            <div className="cardtextI">
            <h3>$ {price}</h3>
-           <p>{title}</p>
+           <p>{title} - {autor}</p>
            </div>
            </Link>
            <ItemCounter stock={stock} initial={1} id={id} />

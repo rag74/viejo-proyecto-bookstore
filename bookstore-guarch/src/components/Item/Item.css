@@ -5,6 +5,12 @@
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+div.cardI:hover {
+  box-shadow: 4px 4px 18px -4px rgba(0, 0, 0, 0.8);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .cardI img {

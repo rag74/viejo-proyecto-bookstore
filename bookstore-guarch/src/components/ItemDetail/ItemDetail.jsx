@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './ItemDetail.css';
 import ItemCounter from '../ItemCounter/ItemCounter'
 
-function ItemDetail ({id , title , price , stock, pictureUrl, description, categoria}) {
+function ItemDetail ({id , title , price , autor, stock, pictureUrl, description, categoria}) {
 
 
     return (
@@ -10,7 +10,7 @@ function ItemDetail ({id , title , price , stock, pictureUrl, description, categ
            <img src={pictureUrl} alt="" />
            <div className="cardtext">
            <h3>$ {price}</h3>
-           <h3>{title}</h3>
+           <h3>{title} - {autor}</h3>
            <p>Descripción: {description}</p>
            <ItemCounter stock={stock} initial={1} id={id} />
            </div>

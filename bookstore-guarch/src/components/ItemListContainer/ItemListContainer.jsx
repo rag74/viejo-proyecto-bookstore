@@ -34,7 +34,8 @@ useEffect(()=>{
 
   getProductos().then((items)=>{
     if(categoria!=null){
-      const filtrados=items.filter((prod)=>prod.categoria===categoria)
+      /*const filtrados=items.filter((prod)=>prod.categoria===categoria)*/
+      const filtrados=items.filter((prod)=>prod.categoria.includes(categoria))
       setProductos(filtrados)
       setLoading(false)
     } else {

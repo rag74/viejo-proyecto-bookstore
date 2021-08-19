@@ -1,7 +1,8 @@
 const data = [
     {
       id: '1',
-      title: 'Las primas - Aurora Venturini', 
+      title: 'Las primas', 
+      autor: 'Venturini, Aurora',
       price: '1330',
       stock:'6',
       categoria:'masvendidos',
@@ -11,17 +12,19 @@ const data = [
     
     {
       id: '2',
-      title: 'Yo recordaré por ustedes - Juan Forn', 
+      title: 'Yo recordaré por ustedes',
+      autor: 'Forn, Juan',
       price: '1690',
       stock:'8',
-      categoria:'novedades',
+      categoria:'novedades, masvendidos',
       pictureUrl:'https://http2.mlstatic.com/D_Q_NP_944021-MLA47066450597_082021-AC.jpg',
       description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies et libero nec iaculis. Proin libero metus, sollicitudin tristique tellus eget, tincidunt vestibulum velit. Ut ut feugiat erat. Aenean purus turpis, elementum bibendum tincidunt eu, iaculis eget velit. Duis lobortis augue et libero tincidunt, sit amet aliquet nisl mattis. Nulla semper tellus elementum, vehicula mauris vitae, congue ligula. Nulla dictum orci non mattis sagittis. Nulla facilisi.',
     },
   
     {
       id: '3',
-      title: 'Autobiografía de mi madre - Jamaica Kincaid', 
+      title: 'Autobiografía de mi madre',
+      autor: 'Kincaid, Jamaica',
       price: '1200',
       stock:'3',
       categoria:'masvendidos',
@@ -31,10 +34,11 @@ const data = [
   
     {
       id: '4',
-      title: 'Ensayos I - Lydia Davis', 
+      title: 'Ensayos I', 
+      autor: 'Davis, Lydia',
       price: '990',
       stock:'9',
-      categoria:'.',
+      categoria:'novedades',
       pictureUrl:'https://http2.mlstatic.com/D_Q_NP_796500-MLA47058660556_082021-AC.jpg',
       description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas porta nunc, sed pretium nulla maximus sit amet. Vestibulum convallis libero diam, eget gravida ligula sollicitudin a. Quisque semper lorem eget ex posuere mattis. Phasellus condimentum erat eu ultricies tristique. Maecenas fringilla sed velit feugiat condimentum. Integer a magna eros. Curabitur ac nisi id lorem pulvinar luctus non quis lectus. Donec molestie libero in augue volutpat, id ornare risus commodo. Donec ac orci sit amet dolor tincidunt maximus. Sed consequat neque nec quam posuere, et tempor odio blandit. Donec dapibus, ex at tincidunt posuere, magna sapien porta mauris, eget ultricies tellus nulla at mauris. Sed egestas volutpat tincidunt. Aenean scelerisque placerat ex. Cras placerat turpis a tortor dignissim sodales. Nulla bibendum leo ipsum, imperdiet bibendum dolor tristique in.',
     },

@@ -16,6 +16,7 @@ function ItemList ({productos, loading}) {
                                                     key={item.id} 
                                                     id={item.id}
                                                     title={item.title}
+                                                    autor={item.autor}
                                                     price={item.price}
                                                     stock={item.stock}
                                                     categoria={item.categoria}
