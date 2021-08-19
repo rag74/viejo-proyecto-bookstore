@@ -16,9 +16,11 @@ function Navbar() {
 
     return(
         <header>
-        <div className="contenedor">   
+        <div className="contenedor">
+        <Link to="/">   
         <i className="fas fa-book-open libro"></i>
         <h1>BOOKSTORE</h1>
+        </Link>
         <div className="burger" onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
