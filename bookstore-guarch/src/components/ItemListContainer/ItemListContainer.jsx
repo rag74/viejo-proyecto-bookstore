@@ -6,7 +6,7 @@ import ItemList from "../ItemList/ItemList";
 import data from '../../data/data'
 
 
-function ItemListContainer({titulo, categoria, reloading}) {
+function ItemListContainer({titulo, categoria}) {
 
   /*const onAdd = (userSelected, setUserSelected, initial)=> {
     console.log("genial! Agregamos al carro "+userSelected)

@@ -26,7 +26,7 @@ function App() {
       </Route>
 
       <Route path='/masvendidos/' exact>
-      <ItemListContainer titulo="LOS MÁS VENDIDOS" categoria="masvendidos" reloading={true}/>
+      <ItemListContainer titulo="LOS MÁS VENDIDOS" categoria="masvendidos"/>
       </Route>
 
       <Route path='/:categoria/:id' exact>
