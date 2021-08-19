@@ -21,18 +21,18 @@ function App() {
       <ItemListContainer titulo="CATALOGO" />
       </Route>
 
-      <Route path='/novedades' exact>
-      <ItemListContainer titulo="NOVEDADES" />
+      <Route path='/novedades/' exact>
+      <ItemListContainer titulo="NOVEDADES" categoria="novedades"/>
       </Route>
 
-      <Route path='/masvendidos' exact>
-      <ItemListContainer titulo="LOS MÁS VENDIDOS" />
+      <Route path='/masvendidos/' exact>
+      <ItemListContainer titulo="LOS MÁS VENDIDOS" categoria="masvendidos" reloading={true}/>
       </Route>
 
       <Route path='/:categoria/:id' exact>
       <ItemDetailContainer titulo="" />
       </Route>
-      
+
     </Switch>
   </BrowserRouter>
   );

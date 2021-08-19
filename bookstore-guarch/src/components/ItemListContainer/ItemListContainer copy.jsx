@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import './ItemListContainer.css';
 import ItemCounter from '../ItemCounter/ItemCounter'
 import ItemList from "../ItemList/ItemList";
 import data from '../../data/data'
 
 
-function ItemListContainer({titulo, categoria, reloading}) {
+function ItemListContainer({titulo}) {
 
   /*const onAdd = (userSelected, setUserSelected, initial)=> {
     console.log("genial! Agregamos al carro "+userSelected)
@@ -17,34 +16,26 @@ function ItemListContainer({titulo, categoria, reloading}) {
     setTimeout(()=>{element.innerHTML = ".";element.className = ""},1500);
     };*/
 
-  const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  var timeout
 
-useEffect(()=>{
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true)
+
+
   const getProductos = ()=> {
-    loading ? timeout=2000 : timeout=0
     return new Promise ((resolve, reject)=>{
       setTimeout (()=>{
         resolve(data),
         reject(new Error('No hay productos'));
-      },timeout);
+      },2000);
     })
   };
 
-
-  getProductos().then((items)=>{
-    if(categoria!=null){
-      const filtrados=items.filter((prod)=>prod.categoria===categoria)
-      setProductos(filtrados)
-      setLoading(false)
-    } else {
-      setProductos(items)
-      setLoading(false)
-    }
-  })
-
-},[categoria])
+  setearProductos()
+  async function setearProductos() {
+    const traerlistado = await getProductos();
+    setProductos(traerlistado);
+    setLoading(false)
+  };
 
   console.log(productos);
   console.log(loading);
