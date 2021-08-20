@@ -63,14 +63,24 @@ h1 {
   font-weight: bold;
   text-decoration: none;
   border-bottom: 1px solid rgb(240, 240, 240, 0.5);
+  transition: background 0.3s;
 }
 
 .menu a:hover {
   background: rgb(240, 240, 240, 0.2);
+  transition: background 0.3s;
 }
 
 .fold {
   transform: translateX(0%);
+}
+
+/*SUBMENO OCULTO*/
+header nav .menunav .submenu {
+  background: rgb(69, 79, 223);
+  position: absolute;
+  left: 0;
+  display: none;
 }
 
 @media (min-width: 1024px) {
@@ -91,7 +101,12 @@ h1 {
     height: auto;
     transform: translateX(0%);
     float: right;
-    display: flex;
+    /*display: flex;*/
+  }
+
+  header nav ul li {
+    display: inline-block;
+    position: relative;
   }
 
   .menu a {
@@ -100,5 +115,37 @@ h1 {
 
   .burger {
     display: none;
+  }
+
+  /*SUBMENO OCULTO*/
+  header nav .menunav .submenu {
+    background: rgb(94, 102, 219);
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: left;
+    width: 200%;
+    font-family: Lato, sans-serif;
+    position: absolute;
+    left: 0;
+  }
+
+  header nav .menunav li:hover .submenu {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 200%;
+    transition: background 0.3s;
+  }
+
+  header nav .menunav .submenu li {
+    padding: 15px;
+    width: 100%;
+  }
+
+  header nav .menunav .submenu li:hover {
+    background: rgba(69, 79, 223);
+    transition: background 0.3s;
+    cursor: pointer;
   }
 }
