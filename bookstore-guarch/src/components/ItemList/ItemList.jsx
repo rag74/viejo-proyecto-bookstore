@@ -3,7 +3,7 @@ import './ItemList.css';
 import Item from '../Item/Item'
 
 
-function ItemList ({productos, loading}) {
+function ItemList ({productos, loading, onAdd}) {
 
 
     return(
@@ -21,6 +21,7 @@ function ItemList ({productos, loading}) {
                                                     stock={item.stock}
                                                     categoria={item.categoria}
                                                     pictureUrl={item.pictureUrl}
+                                                    onAdd={onAdd}
                                                 />
                                         })
                     };

@@ -1,8 +1,9 @@
-.contenedorProducto {
+.contenedorCounter {
   width: 198px;
+  height: 116.6px;
   margin: auto;
-  padding: 5px 5px 5px 5px;
-  margin-top: 10px;
+  padding: 10px;
+  padding-top: 20px;
 }
 
 .cardProducto {
@@ -31,7 +32,6 @@
   flex-direction: row;
   flex-wrap: nowrap;
   padding: 5px 5px;
-  margin: 5px;
   border: 1px solid #a2a2a2;
   border-radius: 4px;
 }
@@ -39,26 +39,6 @@
 .cantidad {
   width: 70%;
   text-align: center;
-}
-
-.buttonAdd {
-  background-color: white;
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 4px;
-  margin: 5px;
-  border: 2px solid #4994dc;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  color: #4994dc;
-  margin-top: 7px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.buttonAdd:hover {
-  background-color: #4994dc;
-  color: white;
-  cursor: pointer;
 }
 
 .buttonD {
@@ -77,6 +57,26 @@
   cursor: pointer;
 }
 
+.buttonAdd {
+  background-color: white;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid #4994dc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #4994dc;
+  margin-top: 7px;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttonAdd:hover {
+  background-color: #4994dc;
+  color: white;
+  cursor: pointer;
+}
+
 /*
 #accion {
   margin-top: 10px;
@@ -86,21 +86,49 @@
   text-align: center;
 }*/
 
-.hidden {
-  margin-top: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
-  color: #4994dc;
+.contenedorTerminar {
+  display: flex;
+  width: 198px;
+  height: 116.6px;
+  padding: 10px;
+  margin: auto;
+  padding-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonTerminar {
+  background-color: #4994dc;
+  color: white;
   text-align: center;
-  visibility: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid #4994dc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttonTerminar:hover {
+  background-color: white;
+  color: #4994dc;
+  cursor: pointer;
 }
 
 .agregado {
-  margin-top: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: #4994dc;
   text-align: center;
-  animation: fadeOutUp 2s;
+  animation: fadeOutUp 1s;
   color: #4994dc;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.dispnone {
+  display: none;
 }

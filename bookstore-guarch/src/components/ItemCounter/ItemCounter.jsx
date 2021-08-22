@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ItemCounter.css';
 
 
-function ItemCounter ({ initial, stock, id /*, onAdd*/ }) {
+function ItemCounter ({ initial, stock, id , onAdd }) {
 
     const [userSelected, setUserSelected] = useState(initial);
 
@@ -15,31 +15,38 @@ function ItemCounter ({ initial, stock, id /*, onAdd*/ }) {
         if (userSelected > 1) {setUserSelected(userSelected-1)}
     };
 
-    const onAdd = (userSelected, setUserSelected, initial)=> {
+/*    const onAdd = (userSelected, setUserSelected, initial)=> {
         console.log("genial! Agregamos al carro "+userSelected)
         setUserSelected(initial);
         const element = document.getElementById(id);
         element.innerHTML = "Productos agregados: "+userSelected;
         element.className = "agregado";
         setTimeout(()=>{element.innerHTML = ".";element.className = "hidden"},1500);
-        };
+        };*/
 
-    const handleAdd = ()=>{onAdd(userSelected, setUserSelected, initial)}
+    const handleAdd = ()=>{onAdd(userSelected, setUserSelected, initial, id)}
 
 
     return (
-        <div className="contenedorProducto">
+        <>
+        <div id={id+"counter"} className="contenedorCounter">
                 <div className="counter">
                     <div className="buttonD" onClick={()=>decrement()}>-</div>
                     <div className="cantidad">{userSelected}</div>
                     <div className="buttonI"onClick={()=>increment()}>+</div>
                 </div>
-                <div className="buttonAdd" onClick={handleAdd}>
+                <div id={id+"buttonAdd"} className="buttonAdd" onClick={handleAdd}>
                 Agregar al carrito
                 </div>
-
-            <div id={id} className="hidden">.</div>
+            <div id={id+"agregado"} className="hidden">.</div>
         </div>
+
+        <div id={id+"terminar"} className="contenedorTerminar dispnone">
+            <div id={id+"buttonTerminar"} className="buttonTerminar">
+                    Terminar mi compra
+            </div>
+        </div>
+        </>
     )
 
 }

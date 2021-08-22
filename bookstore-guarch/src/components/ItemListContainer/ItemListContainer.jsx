@@ -7,14 +7,18 @@ import data from '../../data/data'
 
 function ItemListContainer({titulo, categoria}) {
 
-  /*const onAdd = (userSelected, setUserSelected, initial)=> {
+  const onAdd = (userSelected, setUserSelected, initial, id)=> {
     console.log("genial! Agregamos al carro "+userSelected)
     setUserSelected(initial);
-    const element = document.getElementById("accion");
+    let element = document.getElementById(id+"agregado");
     element.innerHTML = "Productos agregados: "+userSelected;
     element.className = "agregado";
-    setTimeout(()=>{element.innerHTML = ".";element.className = ""},1500);
-    };*/
+    setTimeout(()=>{element.innerHTML = ".";element.className = "hidden"},1000);
+    setTimeout(()=>{element = document.getElementById(id+"counter"); element.className = "dispnone"},1000);
+    setTimeout(()=>{element = document.getElementById(id+"terminar"); element.classList.remove("dispnone");},1000);
+    
+    
+    };
 
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -56,6 +60,7 @@ useEffect(()=>{
     <div className="catalogo"> 
     <ItemList productos={productos}
               loading={loading}
+              onAdd={onAdd}
     />
     </div>
     </div>
