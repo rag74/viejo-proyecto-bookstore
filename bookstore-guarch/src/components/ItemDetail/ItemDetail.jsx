@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCounter from '../ItemCounter/ItemCounter'
 
 function ItemDetail ({id , title , price , autor, stock, pictureUrl, description, categoria}) {
+
+    const [terminarCompra, setterminarCompra] = useState(false)
 
     const onAdd = (userSelected, setUserSelected, initial, id)=> {
         console.log("genial! Agregamos al carro "+userSelected)
@@ -10,10 +13,9 @@ function ItemDetail ({id , title , price , autor, stock, pictureUrl, description
         let element = document.getElementById(id+"agregado");
         element.innerHTML = "Productos agregados: "+userSelected;
         element.className = "agregado";
-        setTimeout(()=>{element.innerHTML = ".";element.className = "hidden"},1000);
-        setTimeout(()=>{element = document.getElementById(id+"counter"); element.className = "dispnone"},1000);
-        setTimeout(()=>{element = document.getElementById(id+"terminar"); element.classList.remove("dispnone");},1000);
+        setTimeout(()=>{setterminarCompra(true)},1000);
         };
+    
 
     return (
        <div className="card">
@@ -22,7 +24,17 @@ function ItemDetail ({id , title , price , autor, stock, pictureUrl, description
            <h3>$ {price}</h3>
            <h3>{title} - {autor}</h3>
            <p>Descripción: {description}</p>
-           <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd}/>
+           {!terminarCompra ?
+                <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd}/> :    
+                
+                <div id={id+"terminar"} className="contenedorTerminar">
+                    <Link to="/cart">
+                    <div id={id+"buttonTerminar"} className="buttonTerminar">
+                            Terminar mi compra
+                    </div>
+                    </Link>
+                </div>
+            }
            </div>
        </div>
     )

@@ -1,10 +1,10 @@
 .card {
   width: 60%;
-  margin: 10px;
   border: 1px solid #a2a2a2;
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .card img {
@@ -23,4 +23,42 @@
 
 .cardtext p {
   padding-top: 20px;
+}
+
+.contenedorTerminar {
+  display: flex;
+  width: 198px;
+  height: 116.6px;
+  padding: 10px;
+  margin: auto;
+  padding-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonTerminar {
+  background-color: #4994dc;
+  color: white;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid #4994dc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttonTerminar:hover {
+  background-color: white;
+  color: #4994dc;
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.dispnone {
+  display: none;
 }

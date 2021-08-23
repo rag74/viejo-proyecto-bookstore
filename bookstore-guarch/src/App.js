@@ -10,6 +10,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar.jsx'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Cart from './components/Cart/Cart.jsx'
 
 
 function App() {
@@ -31,6 +32,10 @@ function App() {
 
       <Route path='/:categoria/:id' exact>
       <ItemDetailContainer titulo="" />
+      </Route>
+
+      <Route path='/cart' exact>
+      <Cart />
       </Route>
 
     </Switch>

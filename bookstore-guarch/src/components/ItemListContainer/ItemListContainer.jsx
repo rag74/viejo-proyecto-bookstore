@@ -16,8 +16,6 @@ function ItemListContainer({titulo, categoria}) {
     setTimeout(()=>{element.innerHTML = ".";element.className = "hidden"},1000);
     setTimeout(()=>{element = document.getElementById(id+"counter"); element.className = "dispnone"},1000);
     setTimeout(()=>{element = document.getElementById(id+"terminar"); element.classList.remove("dispnone");},1000);
-    
-    
     };
 
   const [productos, setProductos] = useState([]);
@@ -38,17 +36,14 @@ useEffect(()=>{
 
   getProductos().then((items)=>{
     if(categoria!=null){
-      /*const filtrados=items.filter((prod)=>prod.categoria===categoria)*/
-      const filtrados=items.filter((prod)=>prod.categoria.includes(categoria))
-      setProductos(filtrados)
-      setLoading(false)
-    } else {
-      setProductos(items)
-      setLoading(false)
-    }
-  })
-
-},[categoria])
+          const filtrados=items.filter((prod)=>prod.categoria.includes(categoria))
+          setProductos(filtrados)
+          setLoading(false)
+            } else {
+              setProductos(items)
+              setLoading(false)
+              }
+      })},[categoria])
 
   console.log(productos);
   console.log(loading);

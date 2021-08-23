@@ -15,7 +15,17 @@ function Item ({id , title , price , autor, stock, pictureUrl, categoria, onAdd}
            <p>{title} - {autor}</p>
            </div>
            </Link>
-           <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd} />
+
+            <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd}/>   
+                
+                <div id={id+"terminar"} className="contenedorTerminar dispnone">
+                    <Link to="/cart">
+                    <div id={id+"buttonTerminar"} className="buttonTerminar">
+                            Terminar mi compra
+                    </div>
+                    </Link>
+                </div>
+            
        </div>
     )
 
