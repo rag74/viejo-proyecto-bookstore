@@ -4,19 +4,21 @@ const CartContext = React.createContext();
 
 export function CartProvider(props) {
 
-  const [carto, setCart] = useState([]);
+  const [cart, setCart] = useState([]);
 
-  const addToCart = element => {
-    setCart([ ...carto, element ]);
+  const addToCart = element=> {
+    setCart([ ...cart, element ]);
   }
 
 
 const value = useMemo (()=>{
     return({
       // poner const y func
+      cart,
+      addToCart
     })
 
-},[])
+},[cart])
 
 return <CartContext.Provider value={value} {...props} />
 

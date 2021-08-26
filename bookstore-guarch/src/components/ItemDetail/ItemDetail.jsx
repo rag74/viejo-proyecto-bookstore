@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCounter from '../ItemCounter/ItemCounter'
 import {CartProvider, useCart} from '../CartContext/CartContext'
+import Item from "../Item/Item";
 
-function ItemDetail ({id , title , price , autor, stock, pictureUrl, description, categoria}) {
+function ItemDetail ({id , title , price , autor, stock, pictureUrl, description, categoria, item}) {
 
-    //const {onAdd, terminarCompra} = useCart()
+    const {addToCart, cart} = useCart()
    const [terminarCompra, setterminarCompra] = useState(false)
 
     const onAdd = (userSelected, setUserSelected, initial, id)=> {
@@ -27,7 +28,7 @@ function ItemDetail ({id , title , price , autor, stock, pictureUrl, description
            <h3>{title} - {autor}</h3>
            <p>Descripción: {description}</p>
            {!terminarCompra ?
-                <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd}/> :    
+                <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd} item={item}/> :    
                 
                 <div id={id+"terminar"} className="contenedorTerminar">
                     <Link to="/cart">

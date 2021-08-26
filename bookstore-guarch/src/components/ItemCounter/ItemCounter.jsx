@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ItemCounter.css';
+import {CartProvider, useCart} from '../CartContext/CartContext'
+import Item from '../Item/Item';
 
-
-function ItemCounter ({ initial, stock, id , onAdd }) {
+function ItemCounter ({ initial, stock, id , onAdd, item }) {
 
     const [userSelected, setUserSelected] = useState(initial);
+    const {addToCart, cart} = useCart()
 
     
     const increment = ()=> {
@@ -17,7 +19,7 @@ function ItemCounter ({ initial, stock, id , onAdd }) {
     };
 
 
-    const handleAdd = ()=>{onAdd(userSelected, setUserSelected, initial, id)}
+    const handleAdd = ()=>{onAdd(userSelected, setUserSelected, initial, id); addToCart([item,userSelected])}
 
 
     return (

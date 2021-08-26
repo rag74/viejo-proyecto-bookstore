@@ -56,7 +56,8 @@ useEffect(()=>{
                         stock={item.stock}
                         categoria={item.categoria}
                         pictureUrl={item.pictureUrl} 
-                        description={item.description} />
+                        description={item.description}
+                        item={item} />
             </div>
         }
         </div>

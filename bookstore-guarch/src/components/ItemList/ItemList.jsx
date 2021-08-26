@@ -22,6 +22,7 @@ function ItemList ({productos, loading, onAdd}) {
                                                     categoria={item.categoria}
                                                     pictureUrl={item.pictureUrl}
                                                     onAdd={onAdd}
+                                                    item={item}
                                                 />
                                         })
                     };

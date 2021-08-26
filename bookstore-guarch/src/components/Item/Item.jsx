@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ItemCounter from "../ItemCounter/ItemCounter";
 import './Item.css';
 
-function Item ({id , title , price , autor, stock, pictureUrl, categoria, onAdd}) {
+function Item ({id , title , price , autor, stock, pictureUrl, categoria, onAdd, item}) {
 
 
     return (
@@ -16,7 +16,7 @@ function Item ({id , title , price , autor, stock, pictureUrl, categoria, onAdd}
            </div>
            </Link>
 
-            <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd}/>   
+            <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd} item={item}/>   
                 
                 <div id={id+"terminar"} className="contenedorTerminar dispnone">
                     <Link to="/cart">

@@ -5,7 +5,7 @@ function Cartwidget(){
 
 return (
 
-    <i className="fas fa-shopping-basket" id="cart"></i>
+    <i className="fas fa-shopping-basket" id="carticon"></i>
 )
 
 

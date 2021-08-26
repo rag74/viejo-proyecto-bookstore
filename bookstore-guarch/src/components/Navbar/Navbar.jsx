@@ -7,7 +7,8 @@ import {CartProvider, useCart} from '../CartContext/CartContext'
 
 function Navbar() {
 
-
+    const {cart} = useCart()
+    console.log(cart)
 
     const [click, setClick] = useState(false);
     
