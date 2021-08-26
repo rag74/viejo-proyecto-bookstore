@@ -10,7 +10,7 @@ function Cart () {
 
         <div key={item[0].id}>
         
-       <h3> {`(${item[1]} unid.) ${item[0].title} - valor $ ${item[0].price}`} </h3>
+       <h3> {`(${item[1]} unid.) ${item[0].title} - valor $ ${item[0].price} (x unid.)`} </h3>
         
         </div>
 

@@ -5,17 +5,23 @@ const CartContext = React.createContext();
 export function CartProvider(props) {
 
   const [cart, setCart] = useState([]);
+  const [isInCart, setisInCart] = useState(false)
 
-  const addToCart = element=> {
+  const addItem = element=> {
+    console.log
     setCart([ ...cart, element ]);
   }
 
+  const checkCartId = ()=> {
+
+  }
 
 const value = useMemo (()=>{
     return({
       // poner const y func
       cart,
-      addToCart
+      addItem,
+      isInCart
     })
 
 },[cart])

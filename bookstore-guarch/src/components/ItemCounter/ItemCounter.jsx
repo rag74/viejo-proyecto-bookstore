@@ -7,7 +7,7 @@ import Item from '../Item/Item';
 function ItemCounter ({ initial, stock, id , onAdd, item }) {
 
     const [userSelected, setUserSelected] = useState(initial);
-    const {addToCart, cart} = useCart()
+    const {addItem, cart} = useCart()
 
     
     const increment = ()=> {
@@ -19,7 +19,7 @@ function ItemCounter ({ initial, stock, id , onAdd, item }) {
     };
 
 
-    const handleAdd = ()=>{onAdd(userSelected, setUserSelected, initial, id); addToCart([item,userSelected])}
+    const handleAdd = ()=>{onAdd(userSelected, setUserSelected, initial, id); addItem([item,userSelected])}
 
 
     return (
