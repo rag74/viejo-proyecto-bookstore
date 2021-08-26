@@ -7,14 +7,21 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+import {CartProvider, useCart} from './components/CartContext/CartContext.jsx'
 import Navbar from './components/Navbar/Navbar.jsx'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart.jsx'
 
+export default ()=> <CartProvider>
+  <App></App>
+  </CartProvider>
+
 
 function App() {
+
   return (
+  
   <BrowserRouter>
     <Navbar/>
     <Switch>
@@ -43,7 +50,6 @@ function App() {
   );
 }
 
-export default App;
 
 /*
 <ItemDetailContainer />

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCounter from '../ItemCounter/ItemCounter'
+import {CartProvider, useCart} from '../CartContext/CartContext'
 
 function ItemDetail ({id , title , price , autor, stock, pictureUrl, description, categoria}) {
 
-    const [terminarCompra, setterminarCompra] = useState(false)
+    //const {onAdd, terminarCompra} = useCart()
+   const [terminarCompra, setterminarCompra] = useState(false)
 
     const onAdd = (userSelected, setUserSelected, initial, id)=> {
         console.log("genial! Agregamos al carro "+userSelected)

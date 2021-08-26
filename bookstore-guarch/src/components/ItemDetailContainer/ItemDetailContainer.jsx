@@ -12,12 +12,12 @@ function ItemDetailContainer() {
   
   const {categoria, id} = useParams()
 
-  const [itemD, setItem] = useState([]);
+  const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(true)
 
 
 useEffect(()=>{
-      const getItems = ()=> {
+      const getProductos = ()=> {
         return new Promise ((resolve, reject)=>{
           setTimeout (()=>{
             resolve(data),
@@ -29,7 +29,7 @@ useEffect(()=>{
 
     setearItems()
       async function setearItems() {
-        const traerItems = await getItems();
+        const traerItems = await getProductos();
         const itemSelected = traerItems.find((traerItems) => traerItems.id === id);
       setItem(itemSelected);
       setLoading(false)
@@ -39,7 +39,7 @@ useEffect(()=>{
 
 
 
-  console.log(itemD);
+  console.log(item);
   console.log(loading);
 
   return (
@@ -48,15 +48,15 @@ useEffect(()=>{
          {loading ? 
         <div className="loading">Cargando...</div> :
             <div className="grilla-prod">
-            <ItemDetail key={itemD.id} 
-                        id={itemD.id} 
-                        title={itemD.title}
-                        autor={itemD.autor} 
-                        price={itemD.price} 
-                        stock={itemD.stock}
-                        categoria={itemD.categoria}
-                        pictureUrl={itemD.pictureUrl} 
-                        description={itemD.description} />
+            <ItemDetail key={item.id} 
+                        id={item.id} 
+                        title={item.title}
+                        autor={item.autor} 
+                        price={item.price} 
+                        stock={item.stock}
+                        categoria={item.categoria}
+                        pictureUrl={item.pictureUrl} 
+                        description={item.description} />
             </div>
         }
         </div>

@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Cartwidget from '../Cartwidget/Cartwidget'
+import {CartProvider, useCart} from '../CartContext/CartContext'
+
 
 function Navbar() {
+
+
 
     const [click, setClick] = useState(false);
     
@@ -43,13 +47,4 @@ function Navbar() {
 
 }
 
-
-/*preguntar:
-
-onClick={()=>handleClick()}
-
-o
-
-onClick={handleClick}  */
-
-    export default Navbar;
+export default Navbar
