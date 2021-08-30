@@ -10,9 +10,9 @@ function ItemDetail ({id , title , price , autor, stock, pictureUrl, description
     const {addToCart, cart} = useCart()
    const [terminarCompra, setterminarCompra] = useState(false)
 
-    const onAdd = (userSelected, setUserSelected, initial, id)=> {
+    const onAdd = (userSelected, setUserSelected, id)=> {
         console.log("genial! Agregamos al carro "+userSelected)
-        setUserSelected(initial);
+        setUserSelected(1);
         let element = document.getElementById(id+"agregado");
         element.innerHTML = "Productos agregados: "+userSelected;
         element.className = "agregado";

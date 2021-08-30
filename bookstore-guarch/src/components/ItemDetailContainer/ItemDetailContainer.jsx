@@ -39,8 +39,8 @@ useEffect(()=>{
 
 
 
-  console.log(item);
-  console.log(loading);
+ // console.log(item);
+ // console.log(loading);
 
   return (
     

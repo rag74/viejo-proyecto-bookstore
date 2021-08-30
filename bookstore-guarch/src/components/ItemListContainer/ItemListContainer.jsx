@@ -7,9 +7,9 @@ import data from '../../data/data'
 
 function ItemListContainer({titulo, categoria}) {
 
-  const onAdd = (userSelected, setUserSelected, initial, id)=> {
+  const onAdd = (userSelected, setUserSelected, id)=> {
     console.log("genial! Agregamos al carro "+userSelected)
-    setUserSelected(initial);
+    setUserSelected(1);
     let element = document.getElementById(id+"agregado");
     element.innerHTML = "Productos agregados: "+userSelected;
     element.className = "agregado";
@@ -44,8 +44,8 @@ useEffect(()=>{
               }
       })},[categoria])
 
-  console.log(productos);
-  console.log(loading);
+  //console.log(productos);
+  //console.log(loading);
 
   return (
     

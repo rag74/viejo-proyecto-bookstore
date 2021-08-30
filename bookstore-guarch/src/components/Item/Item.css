@@ -24,8 +24,12 @@ div.cardI:hover {
   font-family: Lato, sans-serif;
   padding: 10px;
   height: 90px;
-
   color: #333333;
+}
+
+.cardtextI h3 {
+  text-align: left;
+  margin: 0;
 }
 
 a {

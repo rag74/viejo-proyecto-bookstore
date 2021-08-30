@@ -1,9 +1,9 @@
 const data = [
     {
-      id: '1',
+      id: "9788496594333",
       title: 'Las primas', 
       autor: 'Venturini, Aurora',
-      price: '1330',
+      price: 1330,
       stock:'6',
       categoria:'masvendidos',
       pictureUrl:'https://http2.mlstatic.com/D_Q_NP_612431-MLA47061867291_082021-AC.jpg',
@@ -11,10 +11,10 @@ const data = [
     },
     
     {
-      id: '2',
+      id: "9789500440950",
       title: 'Yo recordaré por ustedes',
       autor: 'Forn, Juan',
-      price: '1690',
+      price: 1690,
       stock:'8',
       categoria:'novedades, masvendidos',
       pictureUrl:'https://http2.mlstatic.com/D_Q_NP_944021-MLA47066450597_082021-AC.jpg',
@@ -22,10 +22,10 @@ const data = [
     },
   
     {
-      id: '3',
+      id: "9788481364750",
       title: 'Autobiografía de mi madre',
       autor: 'Kincaid, Jamaica',
-      price: '1200',
+      price: 1200,
       stock:'3',
       categoria:'masvendidos',
       pictureUrl:'https://http2.mlstatic.com/D_Q_NP_627073-MLA47064940595_082021-AC.jpg',
@@ -33,10 +33,10 @@ const data = [
     },
   
     {
-      id: '4',
+      id: "9789877122305",
       title: 'Ensayos I', 
       autor: 'Davis, Lydia',
-      price: '990',
+      price: 990,
       stock:'9',
       categoria:'novedades',
       pictureUrl:'https://http2.mlstatic.com/D_Q_NP_796500-MLA47058660556_082021-AC.jpg',

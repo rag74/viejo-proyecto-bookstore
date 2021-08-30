@@ -4,10 +4,10 @@ import './ItemCounter.css';
 import {CartProvider, useCart} from '../CartContext/CartContext'
 import Item from '../Item/Item';
 
-function ItemCounter ({ initial, stock, id , onAdd, item }) {
+function ItemCounter ({ initial, stock, id , onAdd, item, isInCart }) {
 
     const [userSelected, setUserSelected] = useState(initial);
-    const {addItem, cart} = useCart()
+    const {addItem, cart, checkCartId, isIn} = useCart()
 
     
     const increment = ()=> {
@@ -18,8 +18,9 @@ function ItemCounter ({ initial, stock, id , onAdd, item }) {
         if (userSelected > 1) {setUserSelected(userSelected-1)}
     };
 
-
-    const handleAdd = ()=>{onAdd(userSelected, setUserSelected, initial, id); addItem([item,userSelected])}
+    const handleAdd = ()=>{checkCartId(id, item, userSelected)}// dos objetos addItem([{item,userSelected}])} o forma anterior ([item , userSelected]) 
+    // preuba de checkCart checkCartId(id, item, userSelected)
+    //luego de resuelto poner onadd ()=>{onAdd(userSelected, setUserSelected, initial, id); addItem([{item,userSelected}])}
 
 
     return (

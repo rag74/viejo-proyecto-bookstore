@@ -1,4 +1,47 @@
+.cartcontainter {
+  margin-top: 130px;
+  font-family: Lato, sans-serif;
+}
+
 .fila {
   font-family: Lato, sans-serif;
-  padding: 100px;
+}
+
+h3 {
+  width: 80%;
+  margin: auto;
+  text-align: right;
+}
+
+.emptyCart {
+  width: 100px;
+  margin: auto;
+  background-color: white;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid #4994dc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #4994dc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.emptyCart:hover {
+  background-color: #4994dc;
+  color: white;
+  cursor: pointer;
+}
+
+#homeicon {
+  margin: 40px;
+  font-size: 2.8rem;
+  padding: 20px;
+  color: #f0f0f0;
+  background-color: #333333;
+  border-radius: 50%;
+}
+
+.fa-home:before {
+  color: #f0f0f0;
 }
