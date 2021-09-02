@@ -1,10 +1,57 @@
 .cartcontainter {
   margin-top: 130px;
   font-family: Lato, sans-serif;
+  color: #333333;
 }
 
-.fila {
+.cartcontainter h1 {
+  float: none;
+  text-align: left;
+}
+
+#cartRow {
+  height: 70px;
+  width: 100%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#cartRow img {
+  height: 60px;
+}
+
+.titulo {
+  width: 800px;
+  min-width: 200px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.titulo a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.precio {
+  min-width: 70px;
+}
+
+.eliminar {
+  min-width: 30px;
+  text-align: left;
+}
+
+.importeTotal h3 {
+  text-align: center;
+  padding: 30px;
+}
+
+.tableCart {
   font-family: Lato, sans-serif;
+  padding-top: 10px;
 }
 
 h3 {

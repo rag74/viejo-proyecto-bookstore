@@ -49,8 +49,3 @@ function App() {
   </BrowserRouter>
   );
 }
-
-
-/*
-<ItemDetailContainer />
-<ItemListContainer /> */

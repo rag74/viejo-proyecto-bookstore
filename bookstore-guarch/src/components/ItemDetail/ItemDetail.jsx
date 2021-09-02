@@ -8,17 +8,7 @@ import Item from "../Item/Item";
 function ItemDetail ({id , title , price , autor, stock, pictureUrl, description, categoria, item}) {
 
     const {addToCart, cart} = useCart()
-   const [terminarCompra, setterminarCompra] = useState(false)
 
-    const onAdd = (userSelected, setUserSelected, id)=> {
-        console.log("genial! Agregamos al carro "+userSelected)
-        setUserSelected(1);
-        let element = document.getElementById(id+"agregado");
-        element.innerHTML = "Productos agregados: "+userSelected;
-        element.className = "agregado";
-        setTimeout(()=>{setterminarCompra(true)},1000);
-        };
-    
 
     return (
        <div className="card">
@@ -27,17 +17,14 @@ function ItemDetail ({id , title , price , autor, stock, pictureUrl, description
            <h3>$ {price}</h3>
            <h3>{title} - {autor}</h3>
            <p>Descripción: {description}</p>
-           {!terminarCompra ?
-                <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd} item={item}/> :    
-                
-                <div id={id+"terminar"} className="contenedorTerminar">
+                <ItemCounter stock={stock} initial={1} id={id} item={item}/>    
+                <div id={id+"terminar"} className="contenedorTerminar dispnone">
                     <Link to="/cart">
                     <div id={id+"buttonTerminar"} className="buttonTerminar">
                             Terminar mi compra
                     </div>
                     </Link>
                 </div>
-            }
            </div>
        </div>
     )

@@ -5,7 +5,7 @@ import {CartProvider, useCart} from '../CartContext/CartContext'
 
 function Cart () {
 
-    const {addItem, cart, clear, removeItem} = useCart()
+    const {cart, clear, removeItem} = useCart()
 
 
     /*const cartItems = cart.map(([{item , userSelected}])=>(
@@ -24,32 +24,38 @@ function Cart () {
 
 
         <div key={item[0].id}>
-        
-       <h3> {`(${item[1]} unid.) ${item[0].title} - valor $ ${item[0].price} (x unid.)`} <button onClick={()=>removeItem(item[0].id)}>remove</button> </h3>
-        
+        <div id="cartRow">
+        <span className="imagen"><Link to={`/item/${item[0].id}`}><img src={item[0].pictureUrl} alt=""/></Link></span>
+        <span className="titulo"><Link to={`/item/${item[0].id}`}>{`${item[0].title} - ${item[0].autor}`}</Link></span>
+        <span className="cantidad">{`${item[1]} unid.`}</span>
+        <span className="precio">{`$ ${item[0].price*item[1]}`}</span>
+        <span className="eliminar"><i className="fas fa-times" onClick={()=>removeItem(item[0].id)}></i></span>
+        </div>
+        <hr />
         </div>
 
     ));
 
-
+       
     return(
         <>
         <div className="contenedor">
         <div className="cartcontainter">
-        {cart.length<1 ?
-
-        <div>
+        {cart.length<1 ? <div>
            <h2>No hay productos en el carro de compras</h2>
            <Link to="/"> 
-           <i id="homeicon" class="fas fa-home"></i>
+           <i id="homeicon" className="fas fa-home"></i>
            </Link>
         </div>
             
             :
 
-            <div>        
-            <div className="fila">{cartItems}</div>
-                <div>Importe TOTAL: $ {total}</div>
+            <div>
+            <h1>CARRO DE COMPRAS</h1>        
+            <div className="tableCart">{cartItems}</div>
+                <div className="importeTotal">
+                    <h3>Importe TOTAL: $ {total}</h3>
+                </div>
                 <div className="emptyCart" onClick={clear}> Vaciar carro de compra</div> 
             </div> 
             
