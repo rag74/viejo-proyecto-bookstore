@@ -5,7 +5,7 @@ import './Item.css';
 
 function Item ({id , title , price , autor, stock, pictureUrl, categoria, onAdd, item}) {
 
-
+ 
     return (
        <div className="cardI">
            <Link to={`/item/${id}`}>

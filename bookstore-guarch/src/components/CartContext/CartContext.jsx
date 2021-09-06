@@ -39,6 +39,7 @@ export function CartProvider(props) {
     console.log(`Valor de isInCart: ${isInCart}`);
   }
 
+  
   /*const addItem = ([{item, userSelected}])=> {
     setCart([ ...cart, [{item, userSelected}]]);
   }*/
@@ -52,7 +53,16 @@ export function CartProvider(props) {
     setTimeout(()=>{element = document.getElementById(id+"terminar"); element.classList.remove("dispnone");},1000);
     };
 
-
+    const  generateOrderNum = () => {
+      const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let num1= 'BKST-';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < 10; i++ ) {
+          num1 += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+  
+      return num1;
+  }
 
 const value = useMemo (()=>{
     return({
@@ -63,7 +73,8 @@ const value = useMemo (()=>{
       clear,
       removeItem,
       checkCartId,
-      onAdd
+      onAdd,
+      generateOrderNum
     })
 
 },[cart, isInCart])

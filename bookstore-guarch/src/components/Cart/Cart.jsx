@@ -56,7 +56,11 @@ function Cart () {
                 <div className="importeTotal">
                     <h3>Importe TOTAL: $ {total}</h3>
                 </div>
-                <div className="emptyCart" onClick={clear}> Vaciar carro de compra</div> 
+                <Link to="/payment">
+                    <div className="pay"> PAGAR</div> 
+                </Link>
+                <div className="emptyCart" onClick={clear}> Vaciar carro de compras</div> 
+             
             </div> 
             
         }

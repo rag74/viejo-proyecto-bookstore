@@ -12,6 +12,8 @@ import Navbar from './components/Navbar/Navbar.jsx'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart.jsx'
+import Pruebas from './components/Pruebas/Pruebas.jsx'
+import Order from './components/Order/Order.jsx'
 
 export default ()=> <CartProvider>
   <App></App>
@@ -23,6 +25,7 @@ function App() {
   return (
   
   <BrowserRouter>
+    <Pruebas/>
     <Navbar/>
     <Switch>
       <Route path='/' exact>
@@ -43,6 +46,10 @@ function App() {
 
       <Route path='/cart' exact>
       <Cart />
+      </Route>
+
+      <Route path='/payment' exact>
+      <Order />
       </Route>
 
     </Switch>

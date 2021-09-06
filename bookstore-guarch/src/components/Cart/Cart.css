@@ -21,6 +21,14 @@
 
 #cartRow img {
   height: 60px;
+  display: block;
+  width: auto;
+  margin: auto;
+}
+
+.imagen {
+  width: 60px;
+  min-width: 60px;
 }
 
 .titulo {
@@ -44,6 +52,10 @@
   text-align: left;
 }
 
+.fa-times:hover {
+  cursor: pointer;
+}
+
 .importeTotal h3 {
   text-align: center;
   padding: 30px;
@@ -60,9 +72,11 @@ h3 {
   text-align: right;
 }
 
+.pay,
 .emptyCart {
   width: 100px;
   margin: auto;
+  margin-bottom: 30px;
   background-color: white;
   text-align: center;
   padding-top: 5px;
@@ -74,6 +88,7 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.pay:hover,
 .emptyCart:hover {
   background-color: #4994dc;
   color: white;
@@ -87,6 +102,7 @@ h3 {
   color: #f0f0f0;
   background-color: #333333;
   border-radius: 50%;
+  text-align: center;
 }
 
 .fa-home:before {

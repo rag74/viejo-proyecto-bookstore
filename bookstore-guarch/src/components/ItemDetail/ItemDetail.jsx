@@ -8,7 +8,9 @@ import Item from "../Item/Item";
 function ItemDetail ({id , title , price , autor, stock, pictureUrl, description, categoria, item}) {
 
     const {addToCart, cart} = useCart()
-
+    console.log(`Params que llegan al ItemDetail: `)
+    console.log(id , title , price , autor, stock, pictureUrl, description, categoria, item)
+    console.log(`item en ItemDetail: ${item}`)
 
     return (
        <div className="card">

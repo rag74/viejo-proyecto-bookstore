@@ -19,8 +19,7 @@ function ItemCounter ({ initial, stock, id , onAdd, item, isInCart }) {
     };
 
     const handleAdd = ()=>{checkCartId(id, item, userSelected, setUserSelected)}// dos objetos addItem([{item,userSelected}])} o forma anterior ([item , userSelected]) 
-    // preuba de checkCart checkCartId(id, item, userSelected)
-    //luego de resuelto poner onadd ()=>{onAdd(userSelected, setUserSelected, initial, id); addItem([{item,userSelected}])}
+    
 
 
     return (

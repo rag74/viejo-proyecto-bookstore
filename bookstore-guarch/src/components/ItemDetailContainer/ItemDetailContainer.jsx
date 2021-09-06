@@ -5,6 +5,9 @@ import ItemCounter from '../ItemCounter/ItemCounter'
 import ItemDetail from "../ItemDetail/ItemDetail";
 import data from '../../data/data';
 
+import { collection, query, where, getDocs, } from "firebase/firestore";
+import db from '../../firebase'
+
 
 
 function ItemDetailContainer() {
@@ -12,34 +15,28 @@ function ItemDetailContainer() {
   
   const {categoria, id} = useParams()
 
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState();
   const [loading, setLoading] = useState(true)
 
-
-useEffect(()=>{
-      const getProductos = ()=> {
-        return new Promise ((resolve, reject)=>{
-          setTimeout (()=>{
-            resolve(data),
-            reject(new Error('No hay productos'));
-          },2000);
-        })
-      };
-
-
-    setearItems()
-      async function setearItems() {
-        const traerItems = await getProductos();
-        const itemSelected = traerItems.find((traerItems) => traerItems.id === id);
-      setItem(itemSelected);
-      setLoading(false)
+  useEffect(()=>{
+      async function setearItem() {
+        const arr = []
+        const q = query(collection(db, "items"), where("isbn", "==", id))
+        const querySnapshot = await getDocs(q);
+      querySnapshot.forEach(item => {arr.push(item.data())})
+      console.log(arr)
+      setItem(arr);
+      setLoading(false);
       }
+
+      setearItem()
 
   },[]);
 
 
 
- // console.log(item);
+console.log(`este es item en ItemDetailContainer: `);
+ console.log(item);
  // console.log(loading);
 
   return (
@@ -48,16 +45,17 @@ useEffect(()=>{
          {loading ? 
         <div className="loading">Cargando...</div> :
             <div className="grilla-prod">
-            <ItemDetail key={item.id} 
-                        id={item.id} 
-                        title={item.title}
-                        autor={item.autor} 
-                        price={item.price} 
-                        stock={item.stock}
-                        categoria={item.categoria}
-                        pictureUrl={item.pictureUrl} 
-                        description={item.description}
-                        item={item} />
+            <ItemDetail key={item[0].id} 
+                        id={item[0].id} 
+                        title={item[0].title}
+                        autor={item[0].autor} 
+                        price={item[0].price} 
+                        stock={item[0].stock}
+                        categoria={item[0].categoria}
+                        pictureUrl={item[0].pictureUrl} 
+                        description={item[0].description}
+                        item={item[0]}
+                        />
             </div>
         }
         </div>

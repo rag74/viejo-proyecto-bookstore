@@ -4,6 +4,9 @@ import './ItemListContainer.css';
 import ItemList from "../ItemList/ItemList";
 import data from '../../data/data'
 
+import { collection, query, where, getDocs  } from "firebase/firestore";
+import db from '../../firebase'
+
 
 function ItemListContainer({titulo, categoria}) {
 
@@ -12,30 +15,41 @@ function ItemListContainer({titulo, categoria}) {
   const [loading, setLoading] = useState(true);
   var timeout
 
-useEffect(()=>{
-  const getProductos = ()=> {
-    loading ? timeout=2000 : timeout=0
-    return new Promise ((resolve, reject)=>{
-      setTimeout (()=>{
-        resolve(data),
-        reject(new Error('No hay productos'));
-      },timeout);
-    })
-  };
+  useEffect(() => {
+    async function getProductos() {
+        const arr = []
+
+        if(categoria!=null) {
+    
+            const q = query(collection(db, "items"), where("categoria", "array-contains", (categoria)))
+            const querySnapshot = await getDocs(q);
+            
+            querySnapshot.forEach(item => {
+            arr.push(item.data());
+            })
+
+            console.log(arr);
+            setProductos(arr);
+            setLoading(false);
+
+        } else {
+            const querySnapshot = await getDocs(collection(db, "items"));
+            querySnapshot.forEach((item) => {
+                arr.push(item.data());
+                });
+                console.log(arr);
+                setProductos(arr);
+                setLoading(false);
+        }}
+
+    getProductos()  
+    
+}, [categoria]);
 
 
-  getProductos().then((items)=>{
-    if(categoria!=null){
-          const filtrados=items.filter((prod)=>prod.categoria.includes(categoria))
-          setProductos(filtrados)
-          setLoading(false)
-            } else {
-              setProductos(items)
-              setLoading(false)
-              }
-      })},[categoria])
 
-  //console.log(productos);
+  console.log(`Producto en ItemlistContainer:`);
+  console.log(productos);
   //console.log(loading);
 
   return (

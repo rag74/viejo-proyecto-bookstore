@@ -4,9 +4,6 @@ import './Navbar.css';
 import Cartwidget from '../Cartwidget/Cartwidget'
 import {CartProvider, useCart} from '../CartContext/CartContext'
 
-import { collection, query, where, getDocs  } from "firebase/firestore";
-import db from '../../firebase'
-import { useEffect } from "react";
 
 
 
@@ -22,18 +19,6 @@ function Navbar() {
             setClick(!click)
         } else {setClick(false)}
     };
-
-    useEffect(() => {
-        async function fetchdata() {
-          const querySnapshot = await getDocs(collection(db, "items"));
-          querySnapshot.forEach((doc) => {
-            console.log(doc.id);
-            console.log(doc.data());
-          });
-        }
-        fetchdata()
-      }, [])
-      
 
 
     return(
