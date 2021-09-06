@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Order.css'
 import {CartProvider, useCart} from '../CartContext/CartContext'
 
-import { doc, setDoc, Timestamp } from '@firebase/firestore';
+import { doc, setDoc } from '@firebase/firestore';
 import db from '../../firebase'
 
 
@@ -11,9 +11,11 @@ function Order() {
     const {cart, generateOrderNum, clear} = useCart()
     const [pagando, setPagando] = useState(true)
     const [cartCopy, setCartcopy] = useState(cart)
+    const [orderDate, setorderDate] = useState(new Date().toLocaleString())
+    const [orderNum, setorderNum] = useState(generateOrderNum()+"-v02")
 
-    const orderNum = generateOrderNum()+"-v02";
-    const orderDate = new Date().toLocaleString();
+    //const orderNum = generateOrderNum()+"-v02";
+    //const orderDate = new Date().toLocaleString();
     const user = {name: "Rodrigo Guarch", phone: "+54 9 1162703434", mail: "rguarch@gmail.com"};
     const total = cartCopy.reduce((accumulator, libro) => accumulator + (libro[0].price*libro[1]), 0);
     const orderItems = cartCopy.map((item)=>(
@@ -53,7 +55,7 @@ useEffect(() => {
     return (
         <>
         <div className="contenedor">
-        {pagando ? <div className="pagando">Pagando...</div> :
+        {pagando ? <div className="pagando">Procesando su pago...</div> :
                 <div>
                 <div className="orderContainer">
                     <h2>¡Gracias por su compra! Pago realizado con éxtio</h2>
