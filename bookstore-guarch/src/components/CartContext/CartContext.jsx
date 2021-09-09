@@ -1,4 +1,6 @@
 import React, { createContext, useState , useEffect , useMemo} from 'react';
+import { collection, query, where, getDocs, updateDoc , doc } from "firebase/firestore";
+import db from '../../firebase'
 import Item from '../Item/Item';
 
 const CartContext = React.createContext();
@@ -8,6 +10,8 @@ export function CartProvider(props) {
   const [cart, setCart] = useState([]);
   
   const [isInCart, setisInCart] = useState();
+
+  const user = {name: "Rodrigo Guarch", phone: "+54 9 1162703434", mail: "rguarch@gmail.com"};
 
   var alertMessage
 
@@ -24,12 +28,14 @@ export function CartProvider(props) {
 
 
 
-  const checkCartId = (id, item, userSelected, setUserSelected)=> {
+  const checkCartId = (id, item, userSelected, setUserSelected, stock)=> {
       let inCart
+      let remains
       inCart = cart.map((arr) => arr[0].id).includes(id);  
       setisInCart(inCart);
       console.log(`${id} - ${inCart}`);
-      inCart ? console.log("Este producto ya esta en el carro") : addItem([item , userSelected]);
+      remains = (stock - userSelected)
+      inCart ? console.log("Este producto ya esta en el carro") : addItem([item , userSelected, remains]);
       inCart ? alertMessage=(`Ya esta en su carrito`) : alertMessage=(`(${userSelected}) Productos agregados`);
       onAdd (userSelected, setUserSelected, id, alertMessage)
   }
@@ -55,14 +61,35 @@ export function CartProvider(props) {
 
     const  generateOrderNum = () => {
       const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-      let num1= 'BKST-';
+      let num1= 'BKSTR-';
       const charactersLength = characters.length;
       for ( let i = 0; i < 10; i++ ) {
           num1 += characters.charAt(Math.floor(Math.random() * charactersLength));
       }
   
       return num1;
-  }
+    }
+
+   const stockControl = (remainingStock)=>{remainingStock.forEach((item)=>{async function updateItem() {
+          const q = query(collection(db, "items"), where("isbn", "==", item.id));
+
+          const querySnapshot = await getDocs(q);
+          querySnapshot.forEach((document) => {
+          console.log(document.id, " => ", document.data());
+          const docRef = doc(db, "items", document.id)
+          updateDoc(docRef, {stock: (item.remaining)}
+          );
+      })
+      }
+      updateItem()})
+      } 
+  
+
+    
+
+
+
+
 
 const value = useMemo (()=>{
     return({
@@ -74,7 +101,9 @@ const value = useMemo (()=>{
       removeItem,
       checkCartId,
       onAdd,
-      generateOrderNum
+      generateOrderNum,
+      user,
+      stockControl,
     })
 
 },[cart, isInCart])

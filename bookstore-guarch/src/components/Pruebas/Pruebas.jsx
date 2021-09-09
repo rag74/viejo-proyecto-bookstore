@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react';
-import { collection, query, where, getDocs, } from "firebase/firestore";
+import { collection, query, where, getDocs, updateDoc , doc } from "firebase/firestore";
 import db from '../../firebase'
 
 
@@ -7,22 +7,73 @@ function Pruebas() {
 
     const [productos, setProductos] = useState();
     const [item, setItem] = useState([]);
+    const orderi = [
+    {
+        "id": "9788433980847",
+        "title": "Yoga",
+        "price": 1595,
+        "cantidad": 12
+    },
+    {
+        "id": "9788496594333",
+        "title": "Las primas",
+        "price": 1330,
+        "cantidad": 7
+    },
+    {
+        "id": "9789877122305",
+        "title": "Ensayos I",
+        "price": 990,
+        "cantidad": 3
+    },
+    {
+        "id": "9788481364750",
+        "title": "Autobiografía de mi madre",
+        "price": 1200,
+        "cantidad": 3
+    },
+    {
+        "id": "9789500440950",
+        "title": "Yo recordaré por ustedes",
+        "price": 1690,
+        "cantidad": 6
+    }
+]
+    console.log(orderi)
+    orderi.forEach((orderi)=>{async function searchItem() {
+        const q = query(collection(db, "items"), where("isbn", "==", orderi.id));
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((document) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(document.id, " => ", document.data());
+        const docRef = doc(db, "items", document.id)
+        updateDoc(docRef, {stock: (orderi.cantidad)}
+        );
+    })
+}
+searchItem()})
 
     const id2 = "9788481364750"
+/////////////////////////////////////
 
+/*
     useEffect(()=>{
         async function searchItem() {
-            const q = query(collection(db, "items"), where("isbn", "==", id2));
+            const q = query(collection(db, "items"), where("isbn", "==", orderi[0].id));
 
             const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
+            querySnapshot.forEach((document) => {
             // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            });
-        }
-        searchItem()
-    },[]);
-
+            console.log(document.id, " => ", document.data());
+            const docRef = doc(db, "items", document.id)
+            updateDoc(docRef, {stock: (orderi[0].cantidad)}
+            );
+        })
+    }
+    searchItem()
+},[]);
+*/
     
 
 /*

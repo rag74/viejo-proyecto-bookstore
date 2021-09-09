@@ -6,6 +6,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import data from '../../data/data';
 
 import { collection, query, where, getDocs, } from "firebase/firestore";
+
 import db from '../../firebase'
 
 

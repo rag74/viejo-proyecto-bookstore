@@ -18,12 +18,13 @@ function ItemCounter ({ initial, stock, id , onAdd, item, isInCart }) {
         if (userSelected > 1) {setUserSelected(userSelected-1)}
     };
 
-    const handleAdd = ()=>{checkCartId(id, item, userSelected, setUserSelected)}// dos objetos addItem([{item,userSelected}])} o forma anterior ([item , userSelected]) 
+    const handleAdd = ()=>{checkCartId(id, item, userSelected, setUserSelected, stock)}// dos objetos addItem([{item,userSelected}])} o forma anterior ([item , userSelected]) 
     
 
 
     return (
         <>
+        {stock > 0 ?
         <div id={id+"counter"} className="contenedorCounter">
                 <div className="counter">
                     <div className="buttonD" onClick={()=>decrement()}>-</div>
@@ -34,7 +35,14 @@ function ItemCounter ({ initial, stock, id , onAdd, item, isInCart }) {
                 Agregar al carrito
                 </div>
             <div id={id+"agregado"} className="hidden">.</div>
+        </div> :
+        <div id={id+"sinStock"} className="contenedorSinStock">
+                    <div id={id+"buttonSinStock"} className="buttonSinStock">
+                            Producto sin stock
+                    </div>
+
         </div>
+        }
         </>
     )
 

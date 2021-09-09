@@ -8,7 +8,7 @@ import db from '../../firebase'
 
 
 function Order() {
-    const {cart, generateOrderNum, clear} = useCart()
+    const {cart, user, generateOrderNum, clear, stockControl} = useCart()
     const [pagando, setPagando] = useState(true)
     const [cartCopy, setCartcopy] = useState(cart)
     const [orderDate, setorderDate] = useState(new Date().toLocaleString())
@@ -16,7 +16,7 @@ function Order() {
 
     //const orderNum = generateOrderNum()+"-v02";
     //const orderDate = new Date().toLocaleString();
-    const user = {name: "Rodrigo Guarch", phone: "+54 9 1162703434", mail: "rguarch@gmail.com"};
+
     const total = cartCopy.reduce((accumulator, libro) => accumulator + (libro[0].price*libro[1]), 0);
     const orderItems = cartCopy.map((item)=>(
         <div key={item[0].id}>
@@ -25,9 +25,10 @@ function Order() {
     ))
 
     const orderI = cartCopy.map((item)=>({id: item[0].id, title: item[0].title, price: item[0].price, cantidad: item[1]}))
+    const remainingStock = cartCopy.map((item)=>({id: item[0].id, remaining: item[2]}))
 
 useEffect(() => {
-    async function subirOrden() {
+    async function subirOrden(){
         const orderData = {
             buyer: {
                 name: user.name,
@@ -42,15 +43,19 @@ useEffect(() => {
             }
             
         await setDoc(doc(db, "orders", orderNum), orderData);
-        setPagando(false);
         clear();
+        setPagando(false)
     };
-    
-    subirOrden()
-}, [])
+    subirOrden();
+
+}, []);
+
+console.log("Esto es en order:")
+console.log(orderI)
+
+stockControl(remainingStock)
 
 
-    
 
     return (
         <>
