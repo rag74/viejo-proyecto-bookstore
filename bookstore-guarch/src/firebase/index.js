@@ -31,18 +31,6 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const db = getFirestore();
 
-/*
-useEffect(() => {
-  async function fetchdata() {
-    const querySnapshot = await getDocs(collection(db, "items"));
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
-    });
-  }
-  fetchdata()
-}, [])*/
-
-
 
 export default db
 

@@ -39,6 +39,8 @@
 .cantidad {
   width: 70%;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
 }
 
 .buttonD {
@@ -69,6 +71,7 @@
   margin-top: 7px;
   margin-bottom: 10px;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
 }
 
 .buttonAdd:hover {
@@ -84,6 +87,7 @@
   text-align: center;
   animation: fadeOutUp 1s;
   color: #4994dc;
+  font-weight: normal;
 }
 
 .hidden {
@@ -116,4 +120,5 @@
   font-size: 0.9rem;
   margin-top: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
 }

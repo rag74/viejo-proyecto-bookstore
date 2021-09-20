@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import ItemCounter from "../ItemCounter/ItemCounter";
 import './Item.css';
 
-function Item ({id , title , price , autor, stock, pictureUrl, categoria, onAdd, item}) {
+function Item ({id , title , price , autor, stock, pictureUrl, item}) {
 
  
     return (
-       <div className="cardI">
+       <div className="cardI animate__animated animate__fadeIn">
            <Link to={`/item/${id}`}>
            <img src={pictureUrl} alt="" />
            <div className="cardtextI">
@@ -16,7 +16,7 @@ function Item ({id , title , price , autor, stock, pictureUrl, categoria, onAdd,
            </div>
            </Link>
 
-            <ItemCounter stock={stock} initial={1} id={id} onAdd={onAdd} item={item}/>   
+            <ItemCounter stock={stock} initial={1} id={id} item={item}/>   
                 
                 <div id={id+"terminar"} className="contenedorTerminar dispnone">
                     <Link to="/cart">

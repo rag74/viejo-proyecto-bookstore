@@ -26,6 +26,10 @@ function Order() {
 
     const orderI = cartCopy.map((item)=>({id: item[0].id, title: item[0].title, price: item[0].price, cantidad: item[1]}))
     const remainingStock = cartCopy.map((item)=>({id: item[0].id, remaining: item[2]}))
+    console.log("esto es remaining:")
+    console.log(remainingStock)
+
+    stockControl(remainingStock)
 
 useEffect(() => {
     async function subirOrden(){
@@ -53,14 +57,14 @@ useEffect(() => {
 console.log("Esto es en order:")
 console.log(orderI)
 
-stockControl(remainingStock)
 
+ 
 
 
     return (
         <>
         <div className="contenedor">
-        {pagando ? <div className="pagando">Procesando su pago...</div> :
+        {pagando ? <div className="pagando">Procesando su pago...</div> :  
                 <div>
                 <div className="orderContainer">
                     <h2>¡Gracias por su compra! Pago realizado con éxtio</h2>

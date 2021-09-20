@@ -45,10 +45,6 @@ export function CartProvider(props) {
     console.log(`Valor de isInCart: ${isInCart}`);
   }
 
-  
-  /*const addItem = ([{item, userSelected}])=> {
-    setCart([ ...cart, [{item, userSelected}]]);
-  }*/
 
   const onAdd = (userSelected, setUserSelected, id, alertMessage)=> {
     setUserSelected(1);
@@ -71,7 +67,7 @@ export function CartProvider(props) {
     }
 
    const stockControl = (remainingStock)=>{remainingStock.forEach((item)=>{async function updateItem() {
-          const q = query(collection(db, "items"), where("isbn", "==", item.id));
+          const q = query(collection(db, "items"), where("id", "==", item.id));
 
           const querySnapshot = await getDocs(q);
           querySnapshot.forEach((document) => {

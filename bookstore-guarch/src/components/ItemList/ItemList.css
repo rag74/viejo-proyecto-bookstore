@@ -6,11 +6,11 @@
   text-align: center;
   animation: flash;
   animation-duration: 2s;
-
   align-items: center;
   display: flex;
-  height: 50vh;
   justify-content: center;
+  margin-top: 30vh;
+  margin-bottom: 50vh;
 }
 
 .grilla-prodI {
@@ -20,4 +20,26 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.more {
+  display: inline-block;
+  color: rgb(114 114 114);
+
+  font-family: "Fjalla One", sans-serif;
+  font-size: 0.9rem;
+  padding: 5px;
+  margin: 10px;
+}
+
+.more:hover {
+  display: inline-block;
+  background: rgb(114 114 114);
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
 }

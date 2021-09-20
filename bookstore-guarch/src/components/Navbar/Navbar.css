@@ -76,6 +76,7 @@ h1 {
 
 /*SUBMENO OCULTO*/
 header nav .menunav .submenu {
+  font-family: "Lato", sans-serif;
   background: rgb(69, 79, 223);
   position: absolute;
   left: 0;
@@ -124,9 +125,9 @@ header nav .menunav .submenu {
     flex-direction: column;
     align-items: left;
     width: 200%;
-    font-family: Lato, sans-serif;
     position: absolute;
     left: 0;
+    display: none;
   }
 
   header nav .menunav li:hover .submenu {
@@ -138,7 +139,6 @@ header nav .menunav .submenu {
   }
 
   header nav .menunav .submenu li {
-    padding: 15px;
     width: 100%;
   }
 
@@ -146,5 +146,9 @@ header nav .menunav .submenu {
     background: rgba(69, 79, 223);
     transition: background 0.3s;
     cursor: pointer;
+  }
+
+  .none {
+    display: none !important;
   }
 }

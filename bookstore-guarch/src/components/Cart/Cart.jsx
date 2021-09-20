@@ -7,17 +7,6 @@ function Cart () {
 
     const {cart, clear, removeItem} = useCart()
 
-
-    /*const cartItems = cart.map(([{item , userSelected}])=>(
-
-        <div key={item.id}>
-            <div id={item.id}>
-            <h3> {`(${userSelected} unid.) ${item.title} - valor $ ${item.price} (x unid.)`} <button onClick={()=>removeItem({item})}>eliminar</button></h3>
-            </div>
-        </div>
-
-    ));*/
-
     const total = cart.reduce((accumulator, libro) => accumulator + (libro[0].price*libro[1]), 0);
 
     const cartItems = cart.map((item)=>(
@@ -27,8 +16,8 @@ function Cart () {
         <div id="cartRow">
         <span className="imagen"><Link to={`/item/${item[0].id}`}><img src={item[0].pictureUrl} alt=""/></Link></span>
         <span className="titulo"><Link to={`/item/${item[0].id}`}>{`${item[0].title} - ${item[0].autor}`}</Link></span>
-        <span className="cantidad">{`${item[1]} unid.`}</span>
-        <span className="precio">{`$ ${item[0].price*item[1]}`}</span>
+        <span className="cantidadCart">{`${item[1]} unid.`}</span>
+        <span className="precioCart">{`$ ${item[0].price*item[1]}`}</span>
         <span className="eliminar"><i className="fas fa-times" onClick={()=>removeItem(item[0].id)}></i></span>
         </div>
         <hr />
@@ -56,10 +45,16 @@ function Cart () {
                 <div className="importeTotal">
                     <h3>Importe TOTAL: $ {total}</h3>
                 </div>
-                <Link to="/payment">
-                    <div className="pay"> PAGAR</div> 
-                </Link>
-                <div className="emptyCart" onClick={clear}> Vaciar carro de compras</div> 
+                <div className="cartButtons">
+                    <div className="circle emptyCart" onClick={clear}><i className="fas fa-times"></i><p>vaciar carro</p></div>
+                    <Link to="/">
+                        <div className="circle back"><i class="fas fa-exclamation"></i><p>faltan cosas</p></div>
+                    </Link>
+                    <Link to="/payment">
+                        <div className="circle pay"><i class="fas fa-check"></i><p>pagar</p></div>
+                    </Link>
+                </div>
+
              
             </div> 
             

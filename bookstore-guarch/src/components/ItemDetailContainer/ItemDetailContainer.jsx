@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import './ItemDetailContainer.css';
-import ItemCounter from '../ItemCounter/ItemCounter'
+import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import data from '../../data/data';
-
 import { collection, query, where, getDocs, } from "firebase/firestore";
-
 import db from '../../firebase'
 
 
@@ -16,7 +12,7 @@ function ItemDetailContainer() {
   
   const {categoria, id} = useParams()
 
-  const [item, setItem] = useState();
+  const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
@@ -25,7 +21,6 @@ function ItemDetailContainer() {
         const q = query(collection(db, "items"), where("isbn", "==", id))
         const querySnapshot = await getDocs(q);
       querySnapshot.forEach(item => {arr.push(item.data())})
-      console.log(arr)
       setItem(arr);
       setLoading(false);
       }
@@ -46,16 +41,8 @@ console.log(`este es item en ItemDetailContainer: `);
          {loading ? 
         <div className="loading">Cargando...</div> :
             <div className="grilla-prod">
-            <ItemDetail key={item[0].id} 
-                        id={item[0].id} 
-                        title={item[0].title}
-                        autor={item[0].autor} 
-                        price={item[0].price} 
-                        stock={item[0].stock}
-                        categoria={item[0].categoria}
-                        pictureUrl={item[0].pictureUrl} 
-                        description={item[0].description}
-                        item={item[0]}
+             <ItemDetail key={item[0].id} 
+                         item={item[0]}
                         />
             </div>
         }
@@ -66,3 +53,6 @@ console.log(`este es item en ItemDetailContainer: `);
 
 export default ItemDetailContainer
 
+/*
+
+                        */

@@ -5,6 +5,21 @@ import db from '../../firebase'
 
 function Pruebas() {
 
+
+useEffect(()=>{async function setInitStock(){
+    const querySnapshot = await getDocs(collection(db, "items"));
+    querySnapshot.forEach((document) => {
+      // doc.data() is never undefined for query doc snapshots
+      let stockAleatorio = Math.floor(Math.random()*10)+5;
+      console.log(document.id, " => ", document.data());
+      const docRef = doc(db, "items", document.id)
+      updateDoc(docRef, {stock: stockAleatorio}
+    );
+})
+}
+setInitStock()
+},[]);
+/*
     const [productos, setProductos] = useState();
     const [item, setItem] = useState([]);
     const orderi = [
@@ -54,7 +69,8 @@ function Pruebas() {
 }
 searchItem()})
 
-    const id2 = "9788481364750"
+    const id2 = "9788481364750"*/
+
 /////////////////////////////////////
 
 /*
