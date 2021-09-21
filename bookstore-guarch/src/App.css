@@ -7,6 +7,16 @@
 .contenedor {
   width: 100%;
   margin: auto;
-  min-width: 400px;
   text-align: center;
+  min-width: 360px;
+}
+
+.none {
+  display: none !important;
+}
+
+@media (min-width: 1024px) {
+  .contenedor {
+    width: 1000px;
+  }
 }
