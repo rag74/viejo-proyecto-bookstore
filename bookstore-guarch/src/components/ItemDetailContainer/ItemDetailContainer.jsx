@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './ItemDetailContainer.css';
+import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { collection, query, where, getDocs, } from "firebase/firestore";
@@ -36,10 +37,17 @@ console.log(`este es item en ItemDetailContainer: `);
  // console.log(loading);
 
   return (
-    
+     
        <div className="contenedor">
          {loading ? 
-        <div className="loading">Cargando...</div> :  item[0] == undefined ? <div className="notFound">Creo que no tengo ese libro...😰</div> :
+        <div className="loading">Cargando...</div> :  item[0] == undefined ? 
+            <div className="notFound"> Creo que no tengo ese libro...😰             
+                          <Link className="backHome" to="/"> 
+                              <p>Volver a la tienda</p>
+                              <i id="homeicon" className="fas fa-home"></i>
+                          </Link>
+            </div>  
+           :
             <div className="grilla-prod">
              <ItemDetail key={item[0].id} 
                          item={item[0]}

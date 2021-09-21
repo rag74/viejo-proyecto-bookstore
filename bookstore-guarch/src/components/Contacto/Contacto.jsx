@@ -26,8 +26,6 @@ function Contacto() {
                   </div>
               </form>
           </section>
-
-
         </div>
         
     )

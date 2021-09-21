@@ -82,6 +82,23 @@ h3 {
   text-align: right;
 }
 
+.empty {
+  font-family: "Lato", Helvetica, sans-serif;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 65vh;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.backHome p {
+  color: #333333;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
 #homeicon {
   margin: 40px;
   font-size: 2.8rem;

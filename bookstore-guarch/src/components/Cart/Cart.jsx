@@ -1,7 +1,7 @@
-import React, { useState , useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Cart.css'
-import {CartProvider, useCart} from '../CartContext/CartContext'
+import { useCart } from '../CartContext/CartContext'
 
 function Cart () {
 
@@ -29,37 +29,39 @@ function Cart () {
     return(
         <>
         <div className="contenedor">
-        <div className="cartcontainter">
-        {cart.length<1 ? <div>
-           <h2>No hay productos en el carro de compras</h2>
-           <Link to="/"> 
-           <i id="homeicon" className="fas fa-home"></i>
-           </Link>
-        </div>
-            
-            :
+            <div className="cartcontainter">
+                {cart.length<1 ?             
+                    <div className="empty"> 
+                        No hay productos en el carro de compras             
+                        <Link className="backHome" to="/"> 
+                            <p>Volver a la tienda</p>
+                            <i id="homeicon" className="fas fa-home"></i>
+                        </Link>
+                    </div>
+                    
+                    :
 
-            <div>
-            <h1>CARRO DE COMPRAS</h1>        
-            <div className="tableCart">{cartItems}</div>
-                <div className="importeTotal">
-                    <h3>Importe TOTAL: $ {total}</h3>
-                </div>
-                <div className="cartButtons">
-                    <div className="circle emptyCart" onClick={clear}><i className="fas fa-times"></i><p>vaciar carro</p></div>
-                    <Link to="/">
-                        <div className="circle back"><i class="fas fa-exclamation"></i><p>faltan cosas</p></div>
-                    </Link>
-                    <Link to="/payment">
-                        <div className="circle pay"><i class="fas fa-check"></i><p>pagar</p></div>
-                    </Link>
-                </div>
+                    <div>
+                    <h1>CARRO DE COMPRAS</h1>        
+                    <div className="tableCart">{cartItems}</div>
+                        <div className="importeTotal">
+                            <h3>Importe TOTAL: $ {total}</h3>
+                        </div>
+                        <div className="cartButtons">
+                            <div className="circle emptyCart" onClick={clear}><i className="fas fa-times"></i><p>vaciar carro</p></div>
+                            <Link to="/">
+                                <div className="circle back"><i class="fas fa-exclamation"></i><p>faltan cosas</p></div>
+                            </Link>
+                            <Link to="/payment">
+                                <div className="circle pay"><i class="fas fa-check"></i><p>pagar</p></div>
+                            </Link>
+                        </div>
 
-             
-            </div> 
-            
-        }
-        </div>
+                    
+                    </div> 
+                    
+                }
+            </div>
         </div>
         </>
     )

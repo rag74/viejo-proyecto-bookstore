@@ -12,16 +12,20 @@ import Cart from '../components/Cart/Cart.jsx'
 import Order from '../components/Order/Order.jsx'
 import Contacto from '../components/Contacto/Contacto.jsx'
 import Footer from '../components/Footer/Footer.jsx';
+import NotFound from './errors/NotFound.jsx'
   
   function Router() {
 
     return(
+
+
       <BrowserRouter>
 
+
         <Navbar/>
-        
-          <Switch>
-            
+
+       
+        <Switch>
             <Route path='/' exact>
               <ItemListContainer />
             </Route>
@@ -46,11 +50,15 @@ import Footer from '../components/Footer/Footer.jsx';
               <Contacto />
             </Route>
 
-          </Switch>
+            <Route component={NotFound} />
 
-        <Footer />
+            </Switch>
+           
+         <Footer />
 
+     
       </BrowserRouter>
+
     )
 
   } 

@@ -33,3 +33,5 @@ Rodrigo Guarch - [rag74](https://github.com/rag74)
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE.md](https://github.com/facebook/react/blob/main/LICENSE) para detalles.
+
+(\*) En el Demo no funcionan correctamente los routes a los errores de URL

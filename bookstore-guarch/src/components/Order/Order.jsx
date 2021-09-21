@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Order.css'
-import {CartProvider, useCart} from '../CartContext/CartContext'
+import { useCart } from '../CartContext/CartContext'
 
 import { doc, setDoc } from '@firebase/firestore';
 import db from '../../firebase'
@@ -14,8 +14,6 @@ function Order() {
     const [orderDate, setorderDate] = useState(new Date().toLocaleString())
     const [orderNum, setorderNum] = useState(generateOrderNum()+"-v02")
 
-    //const orderNum = generateOrderNum()+"-v02";
-    //const orderDate = new Date().toLocaleString();
 
     const total = cartCopy.reduce((accumulator, libro) => accumulator + (libro[0].price*libro[1]), 0);
     const orderItems = cartCopy.map((item)=>(
@@ -26,10 +24,9 @@ function Order() {
 
     const orderI = cartCopy.map((item)=>({id: item[0].id, title: item[0].title, price: item[0].price, cantidad: item[1]}))
     const remainingStock = cartCopy.map((item)=>({id: item[0].id, remaining: item[2]}))
-    console.log("esto es remaining:")
-    console.log(remainingStock)
 
-    stockControl(remainingStock)
+
+    
 
 useEffect(() => {
     async function subirOrden(){
@@ -54,8 +51,7 @@ useEffect(() => {
 
 }, []);
 
-console.log("Esto es en order:")
-console.log(orderI)
+stockControl(remainingStock)
 
 
  

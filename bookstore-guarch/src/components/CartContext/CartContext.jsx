@@ -8,8 +8,6 @@ const CartContext = React.createContext();
 export function CartProvider(props) {
 
   const [cart, setCart] = useState([]);
-  
-  const [isInCart, setisInCart] = useState();
 
   const user = {name: "Rodrigo Guarch", phone: "+54 9 1162703434", mail: "rguarch@gmail.com"};
 
@@ -21,7 +19,6 @@ export function CartProvider(props) {
 
   const removeItem = id=> {
       let cartCopy = cart
-      console.log(cartCopy)
       cartCopy = cartCopy.filter((cartitem) => cartitem[0].id !== id)
       setCart(cartCopy)
   }
@@ -32,21 +29,18 @@ export function CartProvider(props) {
       let inCart
       let remains
       inCart = cart.map((arr) => arr[0].id).includes(id);  
-      setisInCart(inCart);
-      console.log(`${id} - ${inCart}`);
       remains = (stock - userSelected)
       inCart ? console.log("Este producto ya esta en el carro") : addItem([item , userSelected, remains]);
       inCart ? alertMessage=(`Ya esta en su carrito`) : alertMessage=(`(${userSelected}) Productos agregados`);
-      onAdd (userSelected, setUserSelected, id, alertMessage)
+      onAdd (setUserSelected, id, alertMessage)
   }
   
   const addItem = element=> {
     setCart([ ...cart, element]);
-    console.log(`Valor de isInCart: ${isInCart}`);
   }
 
 
-  const onAdd = (userSelected, setUserSelected, id, alertMessage)=> {
+  const onAdd = (setUserSelected, id, alertMessage)=> {
     setUserSelected(1);
     let element = document.getElementById(id+"agregado");
     element.innerHTML = alertMessage;
@@ -84,15 +78,11 @@ export function CartProvider(props) {
     
 
 
-
-
-
 const value = useMemo (()=>{
     return({
       // poner const y func a pasar
       cart,
       addItem,
-      isInCart,
       clear,
       removeItem,
       checkCartId,
@@ -102,7 +92,7 @@ const value = useMemo (()=>{
       stockControl,
     })
 
-},[cart, isInCart])
+},[cart])
 
 return <CartContext.Provider value={value} {...props} />
 

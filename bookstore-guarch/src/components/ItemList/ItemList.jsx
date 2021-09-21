@@ -25,10 +25,11 @@ console.log(productos.length)
             productos.length < 1 ? 
                     <div className="catNotFound">
                         <div>Mmmm... no tenemos ese tipo de libros...🤔</div>
-                        <Link to="/"> 
+                        <Link className="backHome" to="/"> 
+                            <p>Volver a la tienda</p>
                             <i id="homeicon" className="fas fa-home"></i>
                         </Link>
-                    </div> :
+                        </div> :
             <div>
                 <div className="grilla-prodI">
                 {
