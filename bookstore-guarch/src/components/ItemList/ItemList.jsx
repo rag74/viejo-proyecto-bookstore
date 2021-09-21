@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './ItemList.css';
+import { Link } from 'react-router-dom';
 import Item from '../Item/Item'
 
 import { useParams } from "react-router-dom";
@@ -7,7 +8,7 @@ import { useParams } from "react-router-dom";
 
 function ItemList ({productos, loading}) {
 
-    const {categoria, id} = useParams()
+
 
 const [loopNum, setloopNum] = useState(8)
 
@@ -20,7 +21,14 @@ console.log(productos.length)
         
         <div className="contenedor">
         {loading ?
-            <div className="loading">Cargando...</div> :
+            <div className="loading">Cargando...</div> : 
+            productos.length < 1 ? 
+                    <div className="catNotFound">
+                        <div>Mmmm... no tenemos ese tipo de libros...🤔</div>
+                        <Link to="/"> 
+                            <i id="homeicon" className="fas fa-home"></i>
+                        </Link>
+                    </div> :
             <div>
                 <div className="grilla-prodI">
                 {

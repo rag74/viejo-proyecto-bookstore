@@ -1,3 +1,14 @@
+.catNotFound {
+  font-family: "Lato", Helvetica, sans-serif;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  justify-content: center;
+  font-weight: 700;
+  align-items: center;
+}
+
 .tituloseccion {
   float: none;
   color: #333333;

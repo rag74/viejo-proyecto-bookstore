@@ -49,6 +49,7 @@ function ItemListContainer() {
 
   return (
     <main>
+  
       <div className="contenedor">
           <h1 className="tituloseccion">{categoria!=null ? categoria.toUpperCase() : "CATALOGO"}</h1>   
           <div className="catalogo"> 
@@ -57,6 +58,7 @@ function ItemListContainer() {
             />
           </div>
       </div>
+    
     </main>
   );
 

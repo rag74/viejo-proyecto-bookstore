@@ -2,7 +2,7 @@
   text-align: left;
   margin: auto;
   width: 90%;
-  min-width: 390px;
+  min-width: 350px;
   margin-top: 100px;
   margin-bottom: 20px;
   background-color: #ffb434;
@@ -48,13 +48,13 @@
   float: none;
   text-align: center;
   font-family: "Fjalla One", sans-serif;
-  font-size: 43px;
+  font-size: 2.4rem;
 }
 
 .form h3 {
   text-align: center;
   font-family: "Fjalla One", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   padding-bottom: 20px;
   width: 100%;
   display: block;

@@ -12,7 +12,7 @@ function ItemDetailContainer() {
   
   const {categoria, id} = useParams()
 
-  const [item, setItem] = useState({});
+  const [item, setItem] = useState();
   const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
@@ -39,12 +39,13 @@ console.log(`este es item en ItemDetailContainer: `);
     
        <div className="contenedor">
          {loading ? 
-        <div className="loading">Cargando...</div> :
+        <div className="loading">Cargando...</div> :  item[0] == undefined ? <div className="notFound">Creo que no tengo ese libro...😰</div> :
             <div className="grilla-prod">
              <ItemDetail key={item[0].id} 
                          item={item[0]}
                         />
             </div>
+          
         }
         </div>
  
