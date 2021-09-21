@@ -16,37 +16,40 @@ import Footer from '../components/Footer/Footer.jsx';
   function Router() {
 
     return(
-        <BrowserRouter>
+      <BrowserRouter>
+
         <Navbar/>
-        <Switch>
-          <Route path='/' exact>
-            <ItemListContainer />
-          </Route>
+        
+          <Switch>
+            
+            <Route path='/' exact>
+              <ItemListContainer />
+            </Route>
 
+            <Route path='/category/:categoria' exact>
+              <ItemListContainer />
+            </Route>
 
-          <Route path='/category/:categoria' exact>
-            <ItemListContainer />
-          </Route>
+            <Route path='/item/:id' exact>
+              <ItemDetailContainer />
+            </Route>
 
+            <Route path='/cart' exact>
+              <Cart />
+            </Route>
 
-          <Route path='/:categoria/:id' exact>
-            <ItemDetailContainer />
-          </Route>
+            <Route path='/payment' exact>
+              <Order />
+            </Route>
 
-          <Route path='/cart' exact>
-            <Cart />
-          </Route>
+            <Route path='/contacto' exact>
+              <Contacto />
+            </Route>
 
-          <Route path='/payment' exact>
-            <Order />
-          </Route>
+          </Switch>
 
-          <Route path='/contacto' exact>
-            <Contacto />
-          </Route>
-
-        </Switch>
         <Footer />
+
       </BrowserRouter>
     )
 

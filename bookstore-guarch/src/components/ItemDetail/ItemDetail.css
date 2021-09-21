@@ -115,6 +115,7 @@
 }
 
 .description p {
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -177,7 +178,7 @@
     margin-top: 15px;
     margin-bottom: 20px;
     text-align: justify;
-    padding: 10px;
+    padding: 10px 100px 10px 80px;
   }
 
   .description h3 {

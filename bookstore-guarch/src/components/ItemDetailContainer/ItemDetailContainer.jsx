@@ -52,7 +52,3 @@ console.log(`este es item en ItemDetailContainer: `);
 }
 
 export default ItemDetailContainer
-
-/*
-
-                        */

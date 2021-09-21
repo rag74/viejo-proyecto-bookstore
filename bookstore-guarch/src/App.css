@@ -6,7 +6,6 @@
 
 .contenedor {
   width: 100%;
-  margin: auto;
   text-align: center;
   min-width: 360px;
 }
@@ -18,5 +17,6 @@
 @media (min-width: 1024px) {
   .contenedor {
     width: 1000px;
+    margin: auto;
   }
 }

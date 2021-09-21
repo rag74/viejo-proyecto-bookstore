@@ -130,7 +130,7 @@ header nav .menunav .submenu {
 
   /*SUBMENO OCULTO*/
   header nav .menunav .submenu {
-    background: rgb(94, 102, 219);
+    background: #4a4d71;
     display: inline-flex;
     flex-wrap: wrap;
     flex-direction: column;

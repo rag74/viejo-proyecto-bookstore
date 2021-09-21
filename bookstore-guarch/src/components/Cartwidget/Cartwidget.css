@@ -19,10 +19,6 @@
   width: 18px;
 }
 
-.hidden {
-  visibility: hidden;
-}
-
 .normal {
   display: block;
 }

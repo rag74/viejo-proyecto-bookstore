@@ -14,7 +14,7 @@
 #cartRow {
   height: 70px;
   width: 100%;
-  min-width: 400px;
+  min-width: 360px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -35,7 +35,7 @@
 
 .titulo {
   width: 800px;
-  min-width: 200px;
+  min-width: 160px;
   text-align: left;
   padding-left: 20px;
 }
