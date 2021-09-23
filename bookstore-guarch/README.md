@@ -4,7 +4,7 @@ Este proyecto renderiza el esqueleto de una tienda virtual para una librería. E
 
 ## Demo
 
-Para ver la demostración de este proyecto funcionando podés visitar el Demo [en este enlace](https://bookstore-coderhouse.surge.sh/).
+Para ver la demostración de este proyecto funcionando podés visitar el Demo [en este enlace](https://bookstore-coderhouse.surge.sh/). (*)
 
 <img src="https://raw.githubusercontent.com/rag74/proyecto-bookstore/master/bookstore-guarch/public/Itemdetail.PNG" style="zoom:60%;border-radius:1%" />
 
