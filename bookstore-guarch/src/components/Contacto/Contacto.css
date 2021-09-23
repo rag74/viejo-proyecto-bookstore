@@ -118,11 +118,13 @@ div.wa:hover {
   padding-top: 5px;
   font-family: "Lato", sans-serif;
   color: white;
+  pointer-events: none;
 }
 
-div.wa i {
+.wa p i {
   font-size: 35px;
   margin-right: 5px;
+  pointer-events: none;
 }
 
 label {

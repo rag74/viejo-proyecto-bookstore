@@ -46,7 +46,7 @@ function Navbar() {
                 <ul className="menunav">
                     <li><Link to="/category/novedades">Novedades</Link></li>
                     <li><Link to="/category/mas vendidos">Los más vendidos</Link></li>
-                    <li><Link to="/">Catálogo</Link>
+                    <li><Link to="/" >Catálogo <i class="fas fa-caret-down"></i></Link>
                         <ul className={clickSub ? "submenu none" : "submenu"} onClick={handleClickSub}>
                             <li><Link to="/category/literatura argentina" >Literatura Argentina</Link></li>
                             <li><Link to="/category/internacional" >Internacional</Link></li>
