@@ -4,7 +4,7 @@ Este proyecto renderiza el esqueleto de una tienda virtual para una librería. E
 
 ## Demo
 
-Para ver la demostración de este proyecto funcionando podés visitar el Demo [en este enlace](https://bookstore-coderhouse.surge.sh/). (*)
+Para ver la demostración de este proyecto funcionando podés visitar el Demo [en este enlace](https://bookstore-ch.herokuapp.com/).
 
 <img src="https://raw.githubusercontent.com/rag74/proyecto-bookstore/master/bookstore-guarch/public/Itemdetail.PNG" style="zoom:60%;border-radius:1%" />
 
@@ -33,5 +33,3 @@ Rodrigo Guarch - [rag74](https://github.com/rag74)
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE.md](https://github.com/facebook/react/blob/main/LICENSE) para detalles.
-
-(\*) En el Demo no funcionan correctamente los routes a los errores de URL
