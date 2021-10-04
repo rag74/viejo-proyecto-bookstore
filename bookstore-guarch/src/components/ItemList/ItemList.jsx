@@ -3,7 +3,6 @@ import './ItemList.css';
 import { Link } from 'react-router-dom';
 import Item from '../Item/Item'
 
-import { useParams } from "react-router-dom";
 
 
 function ItemList ({productos, loading}) {
