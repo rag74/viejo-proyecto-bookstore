@@ -44,7 +44,7 @@ function Cart () {
         var number = document.querySelector("#number").value;
         var CP = document.querySelector("#CP").value;
         defineUser(name, mail, phone, street, number, CP);
-        setTimeout(()=>{history.push('/payment');}, 500 )
+        setTimeout(()=>{history.push('/payment');}, 200 )
       }
 
        
