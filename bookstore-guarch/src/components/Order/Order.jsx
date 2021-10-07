@@ -2,7 +2,6 @@ import React, { useState , useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Order.css'
 import { useCart } from '../CartContext/CartContext'
-
 import { doc, setDoc } from '@firebase/firestore';
 import db from '../../firebase'
 
@@ -13,6 +12,8 @@ function Order() {
     const [cartCopy, setCartcopy] = useState(cart)
     const [orderDate, setorderDate] = useState(new Date().toLocaleString())
     const [orderNum, setorderNum] = useState(generateOrderNum()+"-v02")
+    const [userCopy, setuserCopy] = useState(user)
+
 
 
     const total = cartCopy.reduce((accumulator, libro) => accumulator + (libro[0].price*libro[1]), 0);
@@ -27,7 +28,7 @@ function Order() {
 
 
     
-
+ 
 useEffect(() => {
     async function subirOrden(){
         const orderData = {
@@ -54,9 +55,6 @@ useEffect(() => {
 stockControl(remainingStock)
 
 
- 
-
-
     return (
         <>
         <div className="contenedor">
@@ -71,9 +69,10 @@ stockControl(remainingStock)
                     <div>{orderItems}</div>
                     <p>Importe TOTAL: ${total}.-</p>
                     <h2>Información del comprador</h2>
-                    <p>{user.name}</p>
-                    <p>{user.phone}</p>
-                    <p>{user.mail}</p>
+                    <p>Nombre: {userCopy.name}</p>
+                    <p>Mail: {userCopy.mail} / Tel: {userCopy.phone}</p>
+                    <p>Dirección de envío:</p>
+                    <p>{userCopy.street} {userCopy.number} - CP {userCopy.CP}</p>
                 </div>
                 <Link className="backHome" to="/" onClick={clear}> 
                     <p>Volver a la tienda</p>

@@ -27,8 +27,7 @@ function ItemListContainer() {
             querySnapshot.forEach(item => {
             arr.push(item.data())
             })
-
-            console.log(arr);
+            
             setProductos(arr);
             setLoading(false);
 
@@ -37,7 +36,7 @@ function ItemListContainer() {
             querySnapshot.forEach((item) => {
                 arr.push(item.data())
                 });
-                console.log(arr);
+                
                 setProductos(arr);
                 setLoading(false);
         }}

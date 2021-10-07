@@ -10,8 +10,6 @@ import Cartwidget from '../Cartwidget/Cartwidget'
 function Navbar() {
 
     const {cart} = useCart()
-    console.log(cart)
-
     const [click, setClick] = useState(false);
     const [clickSub, setClickSub] = useState(false);
     

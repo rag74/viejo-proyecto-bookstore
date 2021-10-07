@@ -31,11 +31,6 @@ function ItemDetailContainer() {
   },[]);
 
 
-
-console.log(`este es item en ItemDetailContainer: `);
- console.log(item);
- // console.log(loading);
-
   return (
      
        <div className="contenedor">

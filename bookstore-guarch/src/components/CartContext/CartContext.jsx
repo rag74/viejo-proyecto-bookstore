@@ -1,7 +1,6 @@
-import React, { createContext, useState , useEffect , useMemo} from 'react';
+import React, { useState , useMemo} from 'react';
 import { collection, query, where, getDocs, updateDoc , doc } from "firebase/firestore";
 import db from '../../firebase'
-import Item from '../Item/Item';
 
 const CartContext = React.createContext();
 
@@ -9,9 +8,22 @@ export function CartProvider(props) {
 
   const [cart, setCart] = useState([]);
 
-  const user = {name: "Rodrigo Guarch", phone: "+54 9 1162703434", mail: "rguarch@gmail.com"};
 
   var alertMessage
+  var user = {name: "", phone: "", mail: "", street: "", number: "", CP: "",};
+
+
+  const defineUser = (name, mail, phone, street, number, CP)=>{
+    user.name = name
+    user.phone = phone
+    user.mail = mail
+    user.street = street
+    user.number = number
+    user.CP = CP
+  }
+
+
+  
 
   const clear = ()=> {
       setCart([])
@@ -30,7 +42,7 @@ export function CartProvider(props) {
       let remains
       inCart = cart.map((arr) => arr[0].id).includes(id);  
       remains = (stock - userSelected)
-      inCart ? console.log("Este producto ya esta en el carro") : addItem([item , userSelected, remains]);
+      inCart ? '' : addItem([item , userSelected, remains]);
       inCart ? alertMessage=(`Ya esta en su carrito`) : alertMessage=(`(${userSelected}) Productos agregados`);
       onAdd (setUserSelected, id, alertMessage)
   }
@@ -65,7 +77,6 @@ export function CartProvider(props) {
 
           const querySnapshot = await getDocs(q);
           querySnapshot.forEach((document) => {
-          console.log(document.id, " => ", document.data());
           const docRef = doc(db, "items", document.id)
           updateDoc(docRef, {stock: (item.remaining)}
           );
@@ -89,6 +100,7 @@ const value = useMemo (()=>{
       onAdd,
       generateOrderNum,
       user,
+      defineUser,
       stockControl,
     })
 

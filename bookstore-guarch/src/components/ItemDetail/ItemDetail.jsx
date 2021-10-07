@@ -1,16 +1,10 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { useParams } from "react-router-dom";
 import './ItemDetail.css';
 import ItemCounter from '../ItemCounter/ItemCounter'
 
 
 function ItemDetail ({item}) {
-
-const {categoria, id} = useParams()
-
-console.log(item.categoria.length)
-
 
 const linksCat = item.categoria.map((cat)=>(
     <div key={cat} className="catLink">

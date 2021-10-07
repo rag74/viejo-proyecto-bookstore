@@ -14,11 +14,12 @@ Para ver la demostración de este proyecto funcionando podés visitar el Demo [e
 # From Source
 git clone https://github.com/rag74/proyecto-bookstore.git
 cd proyecto-bookstore
+npm install proyecto-bookstore
 ```
 
 ## Correr
 
-#### `yarn start`
+#### `npm start` or `yarn start`
 
 Ejecuta la aplicación en el modo de desarrollo.\
 Abrir [http://localhost:3000](http://localhost:3000) para ver en el navegador.

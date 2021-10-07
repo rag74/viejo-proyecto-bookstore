@@ -15,7 +15,7 @@ const loadMore = ()=> {
     if (loopNum < productos.length) {setloopNum(loopNum+8)}
 };
 
-console.log(productos.length)
+
     return(
         
         <div className="contenedor">
