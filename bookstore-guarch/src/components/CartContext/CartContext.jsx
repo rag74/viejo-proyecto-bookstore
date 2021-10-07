@@ -42,7 +42,7 @@ export function CartProvider(props) {
       let remains
       inCart = cart.map((arr) => arr[0].id).includes(id);  
       remains = (stock - userSelected)
-      inCart ? '' : addItem([item , userSelected, remains]);
+      inCart ? alertMessage=(`Ya esta en su carrito`) : addItem([item , userSelected, remains]);
       inCart ? alertMessage=(`Ya esta en su carrito`) : alertMessage=(`(${userSelected}) Productos agregados`);
       onAdd (setUserSelected, id, alertMessage)
   }
