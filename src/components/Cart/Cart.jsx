@@ -88,7 +88,7 @@ function Cart () {
                                     <p><label for="email">Email</label></p>
                                     <input type="email" name="email" id="email" placeholder="E-mail" required="true"></input>
                                     <p><label for="phone">Teléfono</label></p>
-                                    <input type="tel" name="phone" id="phone" placeholder="ej. 1152763258" pattern="[0-9]{10}"required="true"></input>
+                                    <input type="tel" name="phone" id="phone" placeholder="(no incluir 0 ni 15) ej. 1152763258" pattern="[0-9]{10}"required="true"></input>
                                     <h4>DIRECCIÓN DE ENTREGA</h4>
                                     <hr />
                                     <p><label for="street">Calle</label></p>
